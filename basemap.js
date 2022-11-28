@@ -3,7 +3,7 @@
         let template = document.createElement("template");
 
         template.innerHTML = ` 
-        link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css" />
+        <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css" />
         <script src="https://js.arcgis.com/4.25/"></script>
 
         <style>
