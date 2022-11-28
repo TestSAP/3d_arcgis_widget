@@ -19,7 +19,7 @@
     // to filter service location geometries
     //
     // A definition query filters what was first retrieved from the SPL feature service
-    function applyDefinitionQuery() {
+    /*function applyDefinitionQuery() {
         var svcLyr = gMyWebmap.findLayerById( 'NapervilleElectric_MIL1_6627' ); 
         console.log( "Layer is");
         console.log( svcLyr);
@@ -73,7 +73,7 @@
         } else { // default is to only display service locations with a set GoS
             gMyLyr.definitionExpression = "NODISCONCT IN ('1', '2', '3', '4', '5', '6')";
         }
-    }
+    }*/
 
     class Map extends HTMLElement {
         constructor() {
