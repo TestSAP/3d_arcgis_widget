@@ -38,7 +38,7 @@
 
             ], function(esriConfig, Map, MapView, Graphic, route, RouteParameters, FeatureSet) {
 
-            esriConfig.apiKey = "AAPKba01f8c7edd348008490c7c24df5a0e5cBu5BKOB0MaFX_J-OU7S329J5FFrKriiv02B9JwpIWUBj3Brs2COy9Ju7W27eUEC";
+            esriConfig.apiKey = "";
 
             const map = new Map({
               basemap: "arcgis-navigation" //Basemap layer service
