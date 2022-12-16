@@ -138,32 +138,14 @@
                 // function executed 2 times. first returns default value of variable &
                 // initialisation variables data
                 onCustomWidgetBeforeUpdate(oChangedProperties) {
-                  this.$chartData = oChangedProperties['chartData'];
-                  locationData = this.$chartData;
-                  if (locationData && !(gPortalID == null) && mapValue == 0)
+                  if (!(gPortalID == null) && mapValue == 0)
                     mainMap();
                 }
             
                 ////function executed on variable updates
                 onCustomWidgetAfterUpdate(oChangedProperties) {
                   gPortalID = this.$portalId;
-                  if ('BColor' in oChangedProperties) {
-                    this.$BColor = oChangedProperties['BColor'];
-                  }
-                  
-            
-                  if (!(gPortalID == null )) {
-                    if ('chartData' in oChangedProperties) {
-                      this.$chartData = oChangedProperties['chartData'];
-                      locationData = this.$chartData; // place passed in value into global
-                    }
-                    if (locationData) {
-                      if (iniValue == 1) { // remove previous geojsonlayer from webscene
-                        webscene.remove(geojsonlayer);
-                      }
-                      processbeacons();
-                    }
-                  }
+                
                 
             } //end of constructor
         } //end of class
