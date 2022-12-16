@@ -64,7 +64,7 @@
                     const scene = new WebScene({
                       portalItem: {
                         // autocasts as new PortalItem()
-                        id: "f2974f8a00ba48e6ac1b83312a5718dc"
+                        id: "3a9976baef9240ab8645ee25c7e9c096"
                       }
                     });
             
