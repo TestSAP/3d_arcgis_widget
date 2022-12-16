@@ -1,28 +1,9 @@
 (function ()
 {
     let template = document.createElement("template");
-
-    var locationData; // holds up each beacons data
-    var webscene;
-    var geojsonlayer;
-    var viewLayer;
-    var url;
-    var blob;
-    var templates;
-    var renderer;
-    var legend;
-    var iniValue = 0;
-    var pointArrFeatureCollection;
     var gPortalID;
-    var gBeaconColor;
-    var gBOColor;
-    var gBstartSize;
-    var gBStopSize;
-    var glegendOption = "off";
     var glayerOption = "off";
-    var mapValue = 0;
-
-
+    
     template.innerHTML = `
     <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css" />
     <script src="https://js.arcgis.com/4.25/"></script>
@@ -62,51 +43,6 @@
 
     `;
 
-    
-
-    function mainMap() {
-        require(["esri/views/SceneView", "esri/WebScene"], (SceneView, WebScene) => {
-            const titleDiv = document.getElementById("titleDiv");
-    
-            /*Creates a new WebScene instance. A WebScene must reference
-            a PortalItem ID that represents a WebScene saved to
-            arcgis.com or an on-premise portal.
-            
-            To load a WebScene from an on-premise portal, set the portal
-            url with esriConfig.portalUrl.
-            */
-
-            const scene = new WebScene({
-              portalItem: {
-                // autocasts as new PortalItem()
-                id: gPortalID
-              }
-            });
-    
-            /*Set the WebScene instance to the map property in a SceneView.*/
-            const view = new SceneView({
-              map: scene,
-              container: "viewDiv",
-              padding: {
-                top: 40
-              }
-            });
-    
-    
-            view.when(function() {
-              // when the scene and view resolve, display the scene's title in the DOM
-              const title = scene.portalItem.title;
-              titleDiv.innerHTML = title;
-            });
-
-            
-          });
-
-    }
-
-    
-
-
         class Map extends HTMLElement
         {
             constructor() {
@@ -116,38 +52,57 @@
                 this._props = {};
                 let that = this;
 
-                require(
-                    [
-                      'esri/Map', 'esri/views/SceneView', 'esri/WebScene', 'esri/Basemap',
-                      'esri/layers/FeatureLayer', 'esri/widgets/LayerList', 'esri/request',
-                      'dojo/domReady!', 'esri/layers/GraphicsLayer', 'esri/Graphic',
-                      'esri/widgets/Legend', 'esri/layers/GeoJSONLayer'
-                    ],
-                    (Map, SceneView, WebScene, Basemap, TileLayer, FeatureLayer, LayerList,
-                      request, GraphicsLayer, Graphic, Legend, GeoJSONLayer) => {
+                require(["esri/views/SceneView", "esri/WebScene"], (SceneView, WebScene) => {
+                    const titleDiv = document.getElementById("titleDiv");
             
-            
+                    /*Creates a new WebScene instance. A WebScene must reference
+                    a PortalItem ID that represents a WebScene saved to
+                    arcgis.com or an on-premise portal.
+                    
+                    To load a WebScene from an on-premise portal, set the portal
+                    url with esriConfig.portalUrl.
+                    */
+
+                    const scene = new WebScene({
+                      portalItem: {
+                        // autocasts as new PortalItem()
+                        id: gPortalID
+                      }
                     });
-                } // end of constructor()
             
-                getSelection() {
-                  return this._currentSelection;
-                }
+                    /*Set the WebScene instance to the map property in a SceneView.*/
+                    const view = new SceneView({
+                      map: scene,
+                      container: "viewDiv",
+                      padding: {
+                        top: 40
+                      }
+                    });
             
-                // function executed on initialisation
-                // function executed 2 times. first returns default value of variable &
-                // initialisation variables data
-                onCustomWidgetBeforeUpdate(oChangedProperties) {
-                  if (!(gPortalID == null) && mapValue == 0)
-                    mainMap();
-                }
             
-                ////function executed on variable updates
-                onCustomWidgetAfterUpdate(oChangedProperties) {
-                  gPortalID = this.$portalId;
-                
-                
+                    view.when(function() {
+                      // when the scene and view resolve, display the scene's title in the DOM
+                      const title = scene.portalItem.title;
+                      titleDiv.innerHTML = title;
+                    });
+                  });
+
             } //end of constructor
+
+            onCustomWidgetBeforeUpdate(oChangedProperties) {
+                if (!(gPortalID == null))
+                  mainMap();
+              }
+
+            
+              onCustomWidgetAfterUpdate(oChangedProperties) {
+                glayerOption = this.$layerOption;
+                if ('portalId' in oChangedProperties) {
+                    this.$portalId = oChangedProperties['portalId'];
+                }
+                gPortalID = this.$portalId;
+                        }
+          
         } //end of class
 
         let scriptSrc = "https://js.arcgis.com/4.18/"
