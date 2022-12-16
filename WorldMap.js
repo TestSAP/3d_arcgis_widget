@@ -125,6 +125,51 @@
               const title = scene.portalItem.title;
               titleDiv.innerHTML = title;
             });
+            
+            if (glegendOption == "on") {
+          // display a key on the screen containing all shapes in map
+          legend = new Legend({
+            view: viewLayer,
+          });
+
+          // add the key to the main screen
+          viewLayer.ui.add(legend, 'top-right');
+
+        }
+
+
+        // template to display additional details for the beacon when selected
+        templates = {
+          title: 'Beacon Detail',
+          content: 'Beacon ID:{beaconId} \n Aisle assigned to:{aisle_name}',
+        };
+
+        // information on how to display the beacons(point format)
+        renderer = {
+          type: 'simple',
+          field: 'name',
+          symbol: {
+            type: 'simple-marker',
+            color: gBeaconColor,
+            outline: {
+              color: gBOColor,
+            },
+          },
+          visualVariables: [{
+            type: 'size',
+            field: 'name',
+            stops: [{
+                value: 4,
+                size: gBstartSize,
+              },
+              {
+                value: 8,
+                size: gBStopSize,
+              },
+            ],
+          }, ],
+        };
+
           });
 
     }
