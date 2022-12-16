@@ -3,7 +3,7 @@
     let template = document.createElement("template");
     var gPortalID;
     var glayerOption = "off";
-    
+
     template.innerHTML = `
     <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css" />
     <script src="https://js.arcgis.com/4.25/"></script>
@@ -43,6 +43,43 @@
 
     `;
 
+    function mainMap()
+    {
+        require(["esri/views/SceneView", "esri/WebScene"], (SceneView, WebScene) => {
+            const titleDiv = document.getElementById("titleDiv");
+    
+            /*Creates a new WebScene instance. A WebScene must reference
+            a PortalItem ID that represents a WebScene saved to
+            arcgis.com or an on-premise portal.
+            
+            To load a WebScene from an on-premise portal, set the portal
+            url with esriConfig.portalUrl.
+            */
+
+            const scene = new WebScene({
+              portalItem: {
+                // autocasts as new PortalItem()
+                id: gPortalID,
+              },
+            });
+    
+            /*Set the WebScene instance to the map property in a SceneView.*/
+            const view = new SceneView({
+              map: scene,
+              container: "viewDiv",
+              padding: {
+                top: 40
+              }
+            });
+    
+    
+            view.when(function() {
+              // when the scene and view resolve, display the scene's title in the DOM
+              const title = scene.portalItem.title;
+              titleDiv.innerHTML = title;
+            });
+          });
+    }
         class Map extends HTMLElement
         {
             constructor() {
@@ -52,40 +89,7 @@
                 this._props = {};
                 let that = this;
 
-                require(["esri/views/SceneView", "esri/WebScene"], (SceneView, WebScene) => {
-                    const titleDiv = document.getElementById("titleDiv");
-            
-                    /*Creates a new WebScene instance. A WebScene must reference
-                    a PortalItem ID that represents a WebScene saved to
-                    arcgis.com or an on-premise portal.
-                    
-                    To load a WebScene from an on-premise portal, set the portal
-                    url with esriConfig.portalUrl.
-                    */
-
-                    const scene = new WebScene({
-                      portalItem: {
-                        // autocasts as new PortalItem()
-                        id: gPortalID
-                      }
-                    });
-            
-                    /*Set the WebScene instance to the map property in a SceneView.*/
-                    const view = new SceneView({
-                      map: scene,
-                      container: "viewDiv",
-                      padding: {
-                        top: 40
-                      }
-                    });
-            
-            
-                    view.when(function() {
-                      // when the scene and view resolve, display the scene's title in the DOM
-                      const title = scene.portalItem.title;
-                      titleDiv.innerHTML = title;
-                    });
-                  });
+                mainMap();
 
             } //end of constructor
 
