@@ -60,7 +60,7 @@
                     To load a WebScene from an on-premise portal, set the portal
                     url with esriConfig.portalUrl.
                     */
-        
+
                     const scene = new WebScene({
                       portalItem: {
                         // autocasts as new PortalItem()
@@ -86,8 +86,6 @@
                   });
 
             } //end of constructor
-
-          
         } //end of class
 
         let scriptSrc = "https://js.arcgis.com/4.18/"
