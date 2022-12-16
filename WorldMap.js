@@ -62,34 +62,7 @@
 
     `;
 
-    // Convert string coordinate from geojson file to array of cooor
-    function removeString(stringCoor) {
-        var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
-        var Lat = parseFloat(LatLng[0]);
-        var Lng = parseFloat(LatLng[1]);
-        var x = parseFloat(LatLng[2]);
-        return [Lng, Lat, x]
-    }
-
-    // function to convert array to geojson format
-    function j2gConvert(jsonObject) {
-        const geoJSONPointArr = jsonObject.map((row) => {
-        return {
-            type: 'Feature',
-            geometry: {
-            type: row.Geometry_Type,
-            coordinates: removeString(row.Geometry_coordinates)
-            },
-            properties: {
-            beaconId: row.beaconID,
-            aisle_name: row.beaconName,
-            },
-            id: parseFloat(row.beaconID),
-        };
-        });
-
-        return geoJSONPointArr;
-    }
+    
 
     function mainMap() {
         require(["esri/views/SceneView", "esri/WebScene"], (SceneView, WebScene) => {
@@ -125,113 +98,13 @@
               const title = scene.portalItem.title;
               titleDiv.innerHTML = title;
             });
+
             
-            if (glegendOption == "on") {
-          // display a key on the screen containing all shapes in map
-          legend = new Legend({
-            view: viewLayer,
-          });
-
-          // add the key to the main screen
-          viewLayer.ui.add(legend, 'top-right');
-
-        }
-
-
-        // template to display additional details for the beacon when selected
-        templates = {
-          title: 'Beacon Detail',
-          content: 'Beacon ID:{beaconId} \n Aisle assigned to:{aisle_name}',
-        };
-
-        // information on how to display the beacons(point format)
-        renderer = {
-          type: 'simple',
-          field: 'name',
-          symbol: {
-            type: 'simple-marker',
-            color: gBeaconColor,
-            outline: {
-              color: gBOColor,
-            },
-          },
-          visualVariables: [{
-            type: 'size',
-            field: 'name',
-            stops: [{
-                value: 4,
-                size: gBstartSize,
-              },
-              {
-                value: 8,
-                size: gBStopSize,
-              },
-            ],
-          }, ],
-        };
-
           });
 
     }
 
-    // function inside class to create geojson beacons
-    function processbeacons() {
-        require(
-        [
-            'esri/config',
-            'esri/Map',
-            'esri/views/SceneView',
-            'esri/WebScene',
-            'esri/Basemap',
-            'esri/layers/FeatureLayer',
-            'esri/widgets/LayerList',
-            'esri/request',
-            'dojo/domReady!',
-            'esri/layers/GraphicsLayer',
-            'esri/Graphic',
-            'esri/widgets/Legend',
-            'esri/layers/GeoJSONLayer',
-            'esri/tasks/RouteTask',
-            'esri/tasks/support/RouteParameters',
-            'esri/tasks/support/FeatureSet',
-        ],
-        (esriConfig, Map, SceneView, WebScene, Basemap, TileLayer, FeatureLayer,
-            LayerList, request, GraphicsLayer, Graphic, Legend, GeoJSONLayer,
-            RouteTask, RouteParameters, FeatureSet) => {
-
-            pointArrFeatureCollection = {};
-            pointArrFeatureCollection = {
-            type: 'FeatureCollection',
-            features: j2gConvert(locationData),
-            bbox: [
-                -179.9997, -61.6995, -3.5699999332428, 179.9142, 82.9995, 629.17
-            ],
-            };
-
-            // create a new blob from geojson featurecollection
-            blob = new Blob([JSON.stringify(pointArrFeatureCollection)], {
-            type: 'application/json',
-            });
-
-            // URL reference to the blob
-            url = URL.createObjectURL(blob);
-
-            // create a layer to hold the beacon coordinates
-            geojsonlayer = new GeoJSONLayer({
-            url,
-            popupTemplate: templates,
-            renderer: renderer
-            });
-
-            if (glayerOption == "on") {
-            // add the beacons to the webscene
-            webscene.add(geojsonlayer);
-            iniValue = 1;
-
-            }
-
-        });
-    } // end of function bracket
+    
 
 
         class Map extends HTMLElement
@@ -273,36 +146,13 @@
             
                 ////function executed on variable updates
                 onCustomWidgetAfterUpdate(oChangedProperties) {
-                  if ('legendOption' in oChangedProperties) {
-                    this.$legendOption = oChangedProperties['legendOption'];
-                  }
-                  glegendOption = this.$legendOption;
-                  if ('layerOption' in oChangedProperties) {
-                    this.$layerOption = oChangedProperties['layerOption'];
-                  }
-                  glayerOption = this.$layerOption;
-                  if ('portalId' in oChangedProperties) {
-                    this.$portalId = oChangedProperties['portalId'];
-                  }
                   gPortalID = this.$portalId;
                   if ('BColor' in oChangedProperties) {
                     this.$BColor = oChangedProperties['BColor'];
                   }
-                  gBeaconColor = this.$BColor;
-                  if ('BOColor' in oChangedProperties) {
-                    this.$BOColor = oChangedProperties['BOColor'];
-                  }
-                  gBOColor = this.$BOColor;
-                  if ('StartSize' in oChangedProperties) {
-                    this.$StartSize = oChangedProperties['StartSize'];
-                  }
-                  gBstartSize = this.$StartSize;
-                  if ('StopSize' in oChangedProperties) {
-                    this.$StopSize = oChangedProperties['StopSize'];
-                  }
-                  gBStopSize = this.$StopSize;
+                  
             
-                  if (!(gPortalID == null || gBeaconColor == null || gBOColor == null || gBstartSize == null || gBStopSize == null)) {
+                  if (!(gPortalID == null )) {
                     if ('chartData' in oChangedProperties) {
                       this.$chartData = oChangedProperties['chartData'];
                       locationData = this.$chartData; // place passed in value into global
