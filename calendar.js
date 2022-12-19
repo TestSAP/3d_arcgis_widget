@@ -57,7 +57,21 @@
     `;
 
 
-    let date = new Date();
+    
+
+    
+
+
+    class Map extends HTMLElement
+        {
+            constructor() {
+                super();
+
+                this.appendChild(template.content.cloneNode(true));
+                this._props = {};
+                let that = this;
+               
+                let date = new Date();
 
     // Função que retorna a data atual do calendário 
     function getCurrentDate(element, asString) {
@@ -238,26 +252,6 @@
         date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
         generateCalendar();
     }
-
-    
-
-
-    class Map extends HTMLElement
-        {
-            constructor() {
-                super();
-
-                this.appendChild(template.content.cloneNode(true));
-                this._props = {};
-                let that = this;
-               
-                setDate(form)
-                resetDate();
-                changeDate(button);
-                nextMonth();
-                prevMonth();
-                prevDay();
-                nextDay();
 
                 document.onload = generateCalendar(date);
 
