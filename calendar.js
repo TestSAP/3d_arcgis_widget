@@ -250,18 +250,8 @@
                 this.appendChild(template.content.cloneNode(true));
                 this._props = {};
                 let that = this;
-                
-                getCurrentDate(element, asString);
+               
                 generateCalendar();
-                setDate(form);
-                changeHeader(dateHeader);
-                changeActive();
-                resetDate();
-                changeDate(button);
-                nextMonth();
-                prevMonth();
-                prevDay();
-                nextDay();
 
                 document.onload = generateCalendar(date);
 
