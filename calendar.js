@@ -57,7 +57,89 @@
     `;
 
 
+    // Função que retorna a data atual do calendário 
+    function getCurrentDate(element, asString) {
+        if (element) {
+            if (asString) {
+                return element.textContent = weekdays[date.getDay()] + ', ' + date.getDate() + " of " + months[date.getMonth()]+ " " + date.getFullYear();
+            }
+            return element.value = date.toISOString().substr(0, 10);
+        }
+        return date;
+    }
+
+
     
+
+    // Altera a data atráves do formulário
+    function setDate(form) {
+        let newDate = new Date(form.date.value);
+        date = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
+        generateCalendar();
+        return false;
+    }
+
+    // Método Muda o mês e o ano do topo do calendário
+    function changeHeader(dateHeader) {
+        const month = document.getElementById("month-header");
+        if (month.childNodes[0]) {
+            month.removeChild(month.childNodes[0]);
+        }
+        const headerMonth = document.createElement("h1");
+        const textMonth = document.createTextNode(months[dateHeader.getMonth()].substring(0, 3) + " " + dateHeader.getFullYear());
+        headerMonth.appendChild(textMonth);
+        month.appendChild(headerMonth);
+    }
+
+    // Função para mudar a cor do botão do dia que está ativo
+    function changeActive() {
+        let btnList = document.querySelectorAll('button.active');
+        btnList.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        btnList = document.getElementsByClassName('btn-day');
+        for (let i = 0; i < btnList.length; i++) {
+            const btn = btnList[i];
+            if (btn.textContent === (date.getDate()).toString()) {
+                btn.classList.add('active');
+            }
+        }
+    }
+
+    // Função que pega a data atual
+    function resetDate() {
+        date = new Date();
+        generateCalendar();
+    }
+
+    // Muda a data pelo numero do botão clicado
+    function changeDate(button) {
+        let newDay = parseInt(button.textContent);
+        date = new Date(date.getFullYear(), date.getMonth(), newDay);
+        generateCalendar();
+    }
+
+    // Funções de avançar e retroceder mês e dia
+    function nextMonth() {
+        date = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+        generateCalendar(date);
+    }
+
+    function prevMonth() {
+        date = new Date(date.getFullYear(), date.getMonth() - 1, 1);
+        generateCalendar(date);
+    }
+
+
+    function prevDay() {
+        date = new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1);
+        generateCalendar();
+    }
+
+    function nextDay() {
+        date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+        generateCalendar();
+    }
 
     
 
@@ -73,19 +155,7 @@
                
                 let date = new Date();
 
-    // Função que retorna a data atual do calendário 
-    function getCurrentDate(element, asString) {
-        if (element) {
-            if (asString) {
-                return element.textContent = weekdays[date.getDay()] + ', ' + date.getDate() + " of " + months[date.getMonth()]+ " " + date.getFullYear();
-            }
-            return element.value = date.toISOString().substr(0, 10);
-        }
-        return date;
-    }
-
-
-    // Função principal que gera o calendário
+                // Função principal que gera o calendário
     function generateCalendar() {
 
         // Pega um calendário e se já existir o remove
@@ -181,76 +251,6 @@
         document.getElementById('date').textContent = date;
         getCurrentDate(document.getElementById("currentDate"), true);
         getCurrentDate(document.getElementById("date"), false);
-    }
-
-    // Altera a data atráves do formulário
-    function setDate(form) {
-        let newDate = new Date(form.date.value);
-        date = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
-        generateCalendar();
-        return false;
-    }
-
-    // Método Muda o mês e o ano do topo do calendário
-    function changeHeader(dateHeader) {
-        const month = document.getElementById("month-header");
-        if (month.childNodes[0]) {
-            month.removeChild(month.childNodes[0]);
-        }
-        const headerMonth = document.createElement("h1");
-        const textMonth = document.createTextNode(months[dateHeader.getMonth()].substring(0, 3) + " " + dateHeader.getFullYear());
-        headerMonth.appendChild(textMonth);
-        month.appendChild(headerMonth);
-    }
-
-    // Função para mudar a cor do botão do dia que está ativo
-    function changeActive() {
-        let btnList = document.querySelectorAll('button.active');
-        btnList.forEach(btn => {
-            btn.classList.remove('active');
-        });
-        btnList = document.getElementsByClassName('btn-day');
-        for (let i = 0; i < btnList.length; i++) {
-            const btn = btnList[i];
-            if (btn.textContent === (date.getDate()).toString()) {
-                btn.classList.add('active');
-            }
-        }
-    }
-
-    // Função que pega a data atual
-    function resetDate() {
-        date = new Date();
-        generateCalendar();
-    }
-
-    // Muda a data pelo numero do botão clicado
-    function changeDate(button) {
-        let newDay = parseInt(button.textContent);
-        date = new Date(date.getFullYear(), date.getMonth(), newDay);
-        generateCalendar();
-    }
-
-    // Funções de avançar e retroceder mês e dia
-    function nextMonth() {
-        date = new Date(date.getFullYear(), date.getMonth() + 1, 1);
-        generateCalendar(date);
-    }
-
-    function prevMonth() {
-        date = new Date(date.getFullYear(), date.getMonth() - 1, 1);
-        generateCalendar(date);
-    }
-
-
-    function prevDay() {
-        date = new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1);
-        generateCalendar();
-    }
-
-    function nextDay() {
-        date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
-        generateCalendar();
     }
 
                 document.onload = generateCalendar(date);
