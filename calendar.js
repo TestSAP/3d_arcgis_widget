@@ -251,7 +251,13 @@
                 this._props = {};
                 let that = this;
                
-                generateCalendar();
+                setDate(form)
+                resetDate();
+                changeDate(button);
+                nextMonth();
+                prevMonth();
+                prevDay();
+                nextDay();
 
                 document.onload = generateCalendar(date);
 
