@@ -60,7 +60,7 @@
           padding: {
             top: 40
           },
-          zoom: 15
+          zoom: 2
 
         });
 
