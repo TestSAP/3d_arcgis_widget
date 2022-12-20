@@ -246,7 +246,7 @@ function nextDay() {
                 this._props = {};
                 let that = this;
                 
-                document.onload = generateCalendar(date);
+                generateCalendar(date);
             }
         }
         let scriptSrc = "https://js.arcgis.com/4.18/"
