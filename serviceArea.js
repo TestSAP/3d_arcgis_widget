@@ -136,9 +136,9 @@
 
             onCustomWidgetAfterUpdate(oChangedProperties) {
               if ('apikey' in oChangedProperties) {
-                this.$api = oChangedProperties['apikey'];
+                this.$apikey = oChangedProperties['apikey'];
               }
-              APIKEY = this.$api;
+              APIKEY = this.$apikey;
             }
         } //end of class
 
