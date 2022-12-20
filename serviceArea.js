@@ -1,6 +1,7 @@
 (function () {
     let template = document.createElement("template");
-
+    var APIKEY;
+    
     template.innerHTML = `
     <style>
         html, body, #viewDiv {
