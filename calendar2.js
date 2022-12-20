@@ -2,6 +2,8 @@
     let template = document.createElement("template");
 
     template.innerHTML = `
+    <link rel="stylesheet" href="./style.css">
+
         <div class="wrapper">
         <h1>Events for this Month.</h1>
         <div id="calendar"></div>
