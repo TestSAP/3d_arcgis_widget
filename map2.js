@@ -60,12 +60,8 @@
           padding: {
             top: 40
           },
-          constraints: {
-            altitude: {
-                min: 20000000,
-                max: 25000000
-            }
-          }
+          zoom: 20000000
+          
 
         });
 
