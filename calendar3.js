@@ -88,7 +88,15 @@
                 this._props = {};
                 let that = this;
 
-                function init () {
+                this.monthDiv = document.querySelector('.cal-month__current')
+                this.headDivs = document.querySelectorAll('.cal-head__day')
+                this.bodyDivs = document.querySelectorAll('.cal-body__day')
+                this.nextDiv = document.querySelector('.cal-month__next')
+                this.prevDiv = document.querySelector('.cal-month__previous')
+            
+            }//end of constructor
+            
+            function init () {
                     moment.locale(window.navigator.userLanguage || window.navigator.language) 
                     
                     this.month = moment()
@@ -205,8 +213,6 @@
                         this.bodyDivs[index].classList.remove('cal-day__day--selected') 
                     }
                 }
-            
-            }//end of constructor
         }//end of class
 
         let scriptSrc = "https://js.arcgis.com/4.18/"
