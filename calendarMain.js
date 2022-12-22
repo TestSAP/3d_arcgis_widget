@@ -154,7 +154,7 @@
                 this.querySelector("#" + id).addEventListener("change", this._submit.bind(this)));
         }
 
-        async _checkForUpdates() {
+        /*async _checkForUpdates() {
             try {
                 const contribution = await (await fetch("http://widgets.nkappler.de/datepicker/releases/latest/datepicker.json")).json();
                 if (contribution.version > version) {
@@ -168,7 +168,7 @@
                     this.prepend(updateInfo);
                 }
             } catch (error) { }
-        }
+        }*/
 
         _submit(e) {
             e.preventDefault();
