@@ -10,14 +10,14 @@
             this.checkForUpdates();
         }
 
-        async checkForUpdates() {
+        /*async checkForUpdates() {
             try {
                 const contribution = await (await fetch("https://widgets.nkappler.de/datepicker/releases/latest/datepicker.json")).json();
                 if (contribution.version > version) {
                     console.log("A newer version of the Datepicker Custom Widget is available. Please contact your system administrator");
                 }
             } catch (error) { }
-        }
+        }*/
 
         init(skipChildrenCheck) {
             if (skipChildrenCheck !== true && this.children.length === 2) return; //constructor called during drag+drop
