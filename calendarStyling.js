@@ -1,5 +1,5 @@
 (function () {
-    let version = "2.5.0";
+    let version = "3.0.0";
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `<link rel="stylesheet" type="text/css" href="https://widgets.nkappler.de/datepicker/releases/2.4.0/light.css"/>`;
 
