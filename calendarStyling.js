@@ -14,7 +14,7 @@
         constructor() {
             super();
             this.init();
-            this.checkForUpdates();
+            
         }
 
         /*async checkForUpdates() {
