@@ -124,7 +124,7 @@
     class DatePickerAps extends HTMLElement {
         constructor() {
             super();
-            this._checkForUpdates();
+            
             this.appendChild(tmpl.content.cloneNode(true));
 
             if (sap.ui.getCore().byId("dateMin")) {
