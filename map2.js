@@ -64,7 +64,17 @@
 
         });
 
+        
+        const searchWidget = new Search({
+          view: view
+        });
 
+        // Add the search widget to the top right corner of the view
+        view.ui.add(searchWidget, {
+          position: "top-right"
+        });
+          
+          
         view.when(function() {
           // when the scene and view resolve, display the scene's title in the DOM
           const title = scene.portalItem.title;
