@@ -43,7 +43,7 @@
     `;
 
     function mainMap() {
-      require(["esri/views/SceneView", "esri/WebScene"], (SceneView, WebScene) => {
+      require(["esri/views/SceneView", "esri/WebScene", "esri/widgets/Search"], (SceneView, WebScene, Search) => {
         const titleDiv = document.getElementById("titleDiv");
 
         const scene = new WebScene({
