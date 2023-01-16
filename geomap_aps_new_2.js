@@ -92,7 +92,7 @@
             this.setValue("portalId", value);    
         }
       
-        get titlelId() {
+        get titleId() {
             return this.getValue("titleId");
         }
         
