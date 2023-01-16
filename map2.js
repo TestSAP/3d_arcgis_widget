@@ -77,8 +77,8 @@
           
         view.when(function() {
           // when the scene and view resolve, display the scene's title in the DOM
-          const title = scene.portalItem.title;
-          //const title = "DHL MENU";
+          //const title = scene.portalItem.title;
+          const title = "DHL MENU";
           titleDiv.innerHTML = title;
         });
       });
