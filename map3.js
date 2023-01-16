@@ -78,7 +78,7 @@
         view.when(function() {
           // when the scene and view resolve, display the scene's title in the DOM
           //const title = gTitleID;
-            const gTitleID = scene.portalItem.title;
+            const gTitleID = scene.portalItem.gTitleID;
           //const title = scene.portalItem.title;
           titleDiv.innerHTML = gTitleID;
         });
