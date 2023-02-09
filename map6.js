@@ -1,7 +1,7 @@
 (function ()
 {
     let template = document.createElement("template");
-    var gPortalID;
+    var gPortalID "f39b1bc5901f42c3bff88d1b021512de";;
 
     template.innerHTML = `
     <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css" />
