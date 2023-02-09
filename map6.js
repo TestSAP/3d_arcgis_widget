@@ -1,7 +1,7 @@
 (function ()
 {
     let template = document.createElement("template");
-    var gPortalID = "f39b1bc5901f42c3bff88d1b021512de";
+    //var gPortalID = "f39b1bc5901f42c3bff88d1b021512de";
 
     template.innerHTML = `
     <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css" />
@@ -49,7 +49,8 @@
         const scene = new WebScene({
           portalItem: {
             // autocasts as new PortalItem()
-            id: gPortalID
+            id: "f39b1bc5901f42c3bff88d1b021512de"
+
           }
         });
 
@@ -105,7 +106,7 @@
 
             } //end of constructor
 
-            onCustomWidgetBeforeUpdate(oChangedProperties) {
+            /*onCustomWidgetBeforeUpdate(oChangedProperties) {
               if(!(gPortalID == null))
               {
                 mainMap();
@@ -119,7 +120,7 @@
               gPortalID = this.$portalId;
 
               
-              }
+              }*/
 
         } //end of class
 
