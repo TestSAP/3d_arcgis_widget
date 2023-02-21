@@ -193,16 +193,16 @@
                 viewLayer = new SceneView({
                   container: 'viewDiv',
                   map: webscene,
-                  zoom: 2
+                  //zoom: 2
                 });
 
-                const searchWidget = new Search({
+                /*const searchWidget = new Search({
                   view: viewLayer
                 });
 
                 viewLayer.ui.add(searchWidget, {
                   position: "top-right"
-                });
+                });*/
         
                 if (glegendOption == "on") {
                   // display a key on the screen containing all shapes in map
