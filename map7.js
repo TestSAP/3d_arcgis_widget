@@ -197,11 +197,10 @@
                 });
 
                 const searchWidget = new Search({
-                  view: view
+                  view: viewLayer
                 });
 
-                // Add the search widget to the top right corner of the view
-                view.ui.add(searchWidget, {
+                viewLayer.ui.add(searchWidget, {
                   position: "top-right"
                 });
         
