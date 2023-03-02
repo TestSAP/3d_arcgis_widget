@@ -111,7 +111,7 @@
               gPortalID = this.$portalId;
 
               if ('titleId' in oChangedProperties) {
-                this.$titleId = oChangedProperties['titlelId'];
+                this.$titleId = oChangedProperties['titleId'];
               }
               gTitleID = this.$titleId;
             }
