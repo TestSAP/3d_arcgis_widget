@@ -2,7 +2,6 @@
 {
     let template = document.createElement("template");
     var gPortalID;
-    var gTitleID;
 
     template.innerHTML = `
     <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css" />
@@ -45,7 +44,7 @@
 
     function mainMap() {
       require(["esri/views/SceneView", "esri/WebScene"], (SceneView, WebScene) => {
-        const titleDiv = document.getElementById("titleDiv");
+        //const titleDiv = document.getElementById("titleDiv");
 
         const scene = new WebScene({
           portalItem: {
@@ -81,12 +80,6 @@
           //const title = scene.portalItem.title;
           titleDiv.innerHTML = title;
         });*/
-          
-        const title = gTitleID;
-        titleDiv.innerHTML = "title";
-        view.ui.add(title, {
-          position: "top"
-        })
       });
     }
 
@@ -115,11 +108,6 @@
                 this.$portalId = oChangedProperties['portalId'];
               }
               gPortalID = this.$portalId;
-
-              if ('titleId' in oChangedProperties) {
-                this.$titleId = oChangedProperties['titleId'];
-              }
-              gTitleID = this.$titleId;
             }
 
         } //end of class
