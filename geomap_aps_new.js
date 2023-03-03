@@ -34,10 +34,6 @@
               <td><label for="portalId">Webscene ID:</label></td>
               <td><input id="portalId" name="portalId" type="text"></td>
             </tr>
-            <tr>
-              <td><label for="titleId">Title:</label></td>
-              <td><input id="titleId" name="titleId" type="text"></td>
-            </tr>
           </table>
         </fieldset>
         <button type="submit" hidden>Submit</button>
@@ -91,14 +87,6 @@
         set portalId(value) {
             this.setValue("portalId", value);    
         }
-      
-        
-        get titleId() {
-            return this.getValue("titleId");
-        }
-        set titleId(value) {
-            this.setValue("titleId", value);    
-        }
         
         getValue(id) {
             return this._shadowRoot.getElementById(id).value;
@@ -110,8 +98,7 @@
 
         static get observedAttributes() {
             return [
-              "portalId",
-                "titleId"
+              "portalId"
             ];
         }
 
