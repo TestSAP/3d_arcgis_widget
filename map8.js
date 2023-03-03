@@ -44,7 +44,7 @@
 
     function mainMap() {
       require(["esri/views/SceneView", "esri/WebScene"], (SceneView, WebScene) => {
-        //const titleDiv = document.getElementById("titleDiv");
+        const titleDiv = document.getElementById("titleDiv");
 
         const scene = new WebScene({
           portalItem: {
@@ -74,12 +74,12 @@
         });
 
 
-        /*view.when(function() {
+        view.when(function() {
           // when the scene and view resolve, display the scene's title in the DOM
-          const title = gTitleID;
+          const title = "";
           //const title = scene.portalItem.title;
           titleDiv.innerHTML = title;
-        });*/
+        });
       });
     }
 
