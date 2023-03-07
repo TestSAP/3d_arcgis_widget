@@ -64,14 +64,14 @@
 
         });
 
-        const searchWidget = new Search({
+        /*const searchWidget = new Search({
           view: view
         });
 
         // Add the search widget to the top right corner of the view
         view.ui.add(searchWidget, {
           position: "top-right"
-        });
+        });*/
 
 
         view.when(function() {
