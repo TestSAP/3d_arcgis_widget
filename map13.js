@@ -19,13 +19,13 @@
 
       #titleDiv {
         background-color: lightgray;
-        color: black;
+        color: lightgray;
         padding: 5px;
         position: absolute;
         z-index: 2;
         top: 0;
         right: 0;
-        font-size: 20pt;
+        font-size: 0pt;
         font-weight: bolder;
         width: 100%;
         height: 0px;
@@ -64,14 +64,14 @@
 
         });
 
-        /*const searchWidget = new Search({
+        const searchWidget = new Search({
           view: view
         });
 
         // Add the search widget to the top right corner of the view
         view.ui.add(searchWidget, {
           position: "top-right"
-        });*/
+        });
 
 
         view.when(function() {
