@@ -28,7 +28,7 @@
         font-size: 20pt;
         font-weight: bolder;
         width: 100%;
-        height: 30px;
+        height: 0px;
         text-align: center;
         opacity: 0.75;
       }
