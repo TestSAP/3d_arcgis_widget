@@ -28,7 +28,7 @@
         font-size: 20pt;
         font-weight: bolder;
         width: 100%;
-        height: 0px;
+        height: 30px;
         text-align: center;
         opacity: 0.75;
       }
@@ -76,7 +76,7 @@
 
         view.when(function() {
           // when the scene and view resolve, display the scene's title in the DOM
-          const title = "a";
+          const title = "DHL";
           //const title = scene.portalItem.title;
           titleDiv.innerHTML = title;
         });
