@@ -17,22 +17,7 @@
         width: 100%;
       }
 
-      #titleDiv {
-        background-color: lightgray;
-        color: black;
-        padding: 5px;
-        position: absolute;
-        z-index: 2;
-        top: 0;
-        right: 0;
-        font-size: 20pt;
-        font-weight: bolder;
-        width: 100%;
-        height: 30px;
-        text-align: center;
-        opacity: 0.75;
-      }
-
+      
     </style>
     </head>
 
