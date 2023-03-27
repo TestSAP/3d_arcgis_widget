@@ -128,7 +128,7 @@
           // template to display additional details for the beacon when selected
           templates = {
             title: 'Beacon Detail',
-            content: '{aisle_name} \n<a href={dashboard}>Dashboard</a>',
+            content: '{aisle_name} \n<a href={dashboard}>Dashboard Link</a>',
           };
   
           // information on how to display the beacons(point format)
