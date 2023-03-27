@@ -58,10 +58,6 @@
               <td><label for="layerOption">Layer Option:</label></td>
               <td><input id="layerOption" name="layerOption" type="text"></td>
             </tr>
-            <tr>
-              <td><label for="layerOption">Layer Option:</label></td>
-              <td><input id="layerOption" name="layerOption" type="text"></td>
-            </tr>
           </table>
         </fieldset>
         <button type="submit" hidden>Submit</button>
