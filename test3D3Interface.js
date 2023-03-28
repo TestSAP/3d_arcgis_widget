@@ -95,7 +95,7 @@
         ],
         (esriConfig, Map, SceneView, WebScene, Basemap, TileLayer, FeatureLayer,
           LayerList, request, GraphicsLayer, Graphic, Legend, GeoJSONLayer,
-          RouteTask, RouteParameters, FeatureSet) => {
+          RouteTask, RouteParameters, FeatureSet, Search) => {
   
           mapValue = 1;
   
@@ -120,7 +120,7 @@
             });
   
             // add the key to the main screen
-            viewLayer.ui.add(legend, 'bottom-left');
+            viewLayer.ui.add(legend, 'top-right');
   
           }
             
