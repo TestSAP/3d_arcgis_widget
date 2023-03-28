@@ -112,6 +112,17 @@
             container: 'viewDiv',
             map: webscene,
           });
+            
+            //Display search bar
+            const searchWidget = new Search({
+            view: viewLayer
+            });
+
+            // Add the search widget to the top right corner of the view
+            viewLayer.ui.add(searchWidget, {
+              position: "top-right"
+            });
+            
   
           if (glegendOption == "on") {
             // display a key on the screen containing all shapes in map
@@ -124,15 +135,7 @@
   
           }
             
-           //Display search bar
-            const searchWidget = new Search({
-            view: viewLayer
-            });
-
-            // Add the search widget to the top right corner of the view
-            viewLayer.ui.add(searchWidget, {
-              position: "top-right"
-            });
+           
   
   
           // template to display additional details for the beacon when selected
