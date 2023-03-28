@@ -120,9 +120,19 @@
             });
   
             // add the key to the main screen
-            viewLayer.ui.add(legend, 'top-right');
+            viewLayer.ui.add(legend, 'bottom-left');
   
           }
+            
+           //Display search bar
+            const searchWidget = new Search({
+            view: view
+            });
+
+            // Add the search widget to the top right corner of the view
+            view.ui.add(searchWidget, {
+              position: "top-right"
+            });
   
   
           // template to display additional details for the beacon when selected
