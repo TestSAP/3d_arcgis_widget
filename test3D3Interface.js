@@ -119,9 +119,7 @@
             });
 
             // Add the search widget to the top right corner of the view
-            viewLayer.ui.add(searchWidget, {
-              position: "top-right"
-            });
+            viewLayer.ui.add(searchWidget, 'top-right');
             
   
           if (glegendOption == "on") {
