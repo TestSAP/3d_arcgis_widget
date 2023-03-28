@@ -95,7 +95,7 @@
         ],
         (esriConfig, Map, SceneView, WebScene, Basemap, TileLayer, FeatureLayer,
           LayerList, request, GraphicsLayer, Graphic, Legend, GeoJSONLayer,
-          RouteTask, RouteParameters, FeatureSet, Search) => {
+          RouteTask, RouteParameters, FeatureSet) => {
   
           mapValue = 1;
   
@@ -112,14 +112,6 @@
             container: 'viewDiv',
             map: webscene,
           });
-            
-            //Display search bar
-            const searchWidget = new Search({
-            view: viewLayer
-            });
-
-            // Add the search widget to the top right corner of the view
-            viewLayer.ui.add(searchWidget, 'top-right');
             
   
           if (glegendOption == "on") {
