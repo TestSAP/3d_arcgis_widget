@@ -114,13 +114,6 @@
             zoom: 2,
           });
             
-        
-          const searchWidget = new Search({
-            view: viewLayer
-          });
-  
-          // Add the search widget to the top right corner of the view
-          viewLayer.ui.add(searchWidget, "top-right");
 
   
           // template to display additional details for the beacon when selected
