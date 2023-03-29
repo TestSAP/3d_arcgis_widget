@@ -64,7 +64,7 @@
         properties: {
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
-          dashboard: row.beaconName_2,
+          dashboard: row.dashboardLink,
         },
         id: parseFloat(row.beaconID),
       };
@@ -131,7 +131,7 @@
         // template to display additional details for the beacon when selected
         templates = {
           title: 'Beacon Detail',
-          content: '{aisle_name} \n <a href="{dashboard}">Dashboard_Link</a>',
+          content: '{aisle_name} \n <a href="{dashboard}">Dashboard Link</a>',
         };
 
         //<a href="https://codepen.io/pen"></a>
