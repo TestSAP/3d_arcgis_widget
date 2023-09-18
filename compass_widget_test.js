@@ -53,7 +53,8 @@
             container: "viewDiv",
             scale: 500000,
             center: [26.26, 39.17],
-            map: map
+            map: map,
+            rotationEnabled: false
           });
   
           /********************************
