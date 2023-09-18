@@ -53,8 +53,7 @@
             container: "viewDiv",
             scale: 500000,
             center: [26.26, 39.17],
-            map: map,
-            rotationEnabled: false
+            map: map
           });
   
           /********************************
@@ -67,6 +66,7 @@
   
           // Add the Compass widget to the top left corner of the view
           view.ui.add(compassWidget, "top-left");
+          view.constraints = {rotationEnabled: false};
         });
     }
 
