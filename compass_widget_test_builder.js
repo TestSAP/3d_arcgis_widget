@@ -28,7 +28,7 @@
       </style>
       <form id="form" autocomplete="off">
         <fieldset> 
-          <legend>Modification Panel</legend>
+          <legend>Modification Panel 1</legend>
           <table>
             <tr>
               <td><label for="portalId">Webscene ID:</label></td>
