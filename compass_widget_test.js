@@ -94,7 +94,7 @@
                 gdegrees = oChangedProperties['degrees'];
               }
               if ('center' in oChangedProperties) {
-                gcenter = oChangedProperties['center'];
+                gcenter = JSON.parse(oChangedProperties['center']);
               }
               if ('zoom' in oChangedProperties) {
                 gzoom = oChangedProperties['zoom'];
