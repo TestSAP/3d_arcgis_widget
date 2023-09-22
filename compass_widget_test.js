@@ -38,15 +38,9 @@
         require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer"],
         (Map, MapView, Compass, FeatureLayer) => {
 
-          const featureLayer = new FeatureLayer({
-            url: gLayerURL
-          });
-
           const map = new Map({
             basemap: "streets-vector"
           });
-
-          map.add(featureLayer);
 
           const view = new MapView({
             container: "viewDiv",
@@ -55,7 +49,12 @@
             zoom: gzoom,
             center: gcenter,
           });
-  
+
+          const featureLayer = new FeatureLayer({
+            url: gLayerURL
+          });
+
+          map.add(featureLayer);
           /********************************
            * Create a compass widget object.
            *********************************/
@@ -98,6 +97,7 @@
             }
 
             onCustomWidgetAfterUpdate(oChangedProperties) {
+              console.log(oChangedProperties)
               if ('layerURL' in oChangedProperties) {
                 gLayerURL = oChangedProperties['layerURL'];
               }
