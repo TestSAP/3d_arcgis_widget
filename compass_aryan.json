@@ -1,0 +1,156 @@
+{
+    "id": "com.sap.custom.compass_widget",
+    "version": "1.0.0",
+    "name": "Compass_widget",
+    "description": "Compass_Widget_Test",
+    "newInstancePrefix": "Compass_widget",
+    "icon": "",
+    "vendor": "sap",
+    "eula": "",
+    "license": "",
+    "imports": [ "input-controls" ],
+    "webcomponents": [
+      {
+        "kind": "main",
+        "tag": "com-sap-custom-geomap",
+        "url": "https://testsap.github.io/compass_widget.js",
+        "integrity": "",
+        "ignoreIntegrity": true
+      },
+      {
+        "kind": "builder",
+        "tag": "com-sap-custom-geomap-builder",
+        "url": "https://testsap.github.io/compass_widget_builder.js",
+        "integrity": "",
+        "ignoreIntegrity": true
+      }
+    ],
+    "properties": {
+      "metadata": {
+        "type": "string",
+        "description": "For internal use",
+        "default": ""
+      },
+      "servicelevel": {
+        "type": "integer",
+        "description": "Electrical NODISCONT Service Level",
+        "default": 0
+      },
+      "layerURL":{
+        "type":"string",
+        "description":"Layer URL",
+        "default":"https://services2.arcgis.com/bHw5SIVxT3UESSB8/ArcGIS/rest/services/Ground_Floor/FeatureServer/4"
+      },
+      "degrees":{
+        "type":"integer",
+        "description":"degrees",
+        "default": 0
+      },
+      "center":{
+        "type":"string",
+        "description":"center",
+        "default": "[28.716,41.2696]"
+      },
+      "zoom":{
+        "type":"integer",
+        "description":"zoom",
+        "default": 18
+      }
+    },
+    "methods": {
+      "setServiceLevel": {
+        "description": "Set the customer Service Level",
+        "parameters": [
+          {
+            "name": "service",
+            "type": "integer",
+            "description": "ServiceLevel"
+          }
+        ],
+        "body": "this.servicelevel = service;"
+      },
+      "getlayerURL":{
+         "returnType":"string",
+         "description":"Layer URL",
+         "parameters":[
+            
+         ],
+         "body":"return this.layerURL;"
+      },
+      "setlayerURL":{
+         "description":"Layer URL",
+         "parameters":[
+            {
+               "name":"layerURL",
+               "type":"string",
+               "description":"Set New Layer URL"
+            }
+         ],
+         "body":"this.layerURL = layerURL;"
+      },
+      "getdegrees":{
+         "returnType":"integer",
+         "description":"degrees",
+         "parameters":[
+            
+         ],
+         "body":"return this.degrees;"
+      },
+      "setdegrees":{
+         "description":"degrees",
+         "parameters":[
+            {
+               "name":"degrees",
+               "type":"integer",
+               "description":"degrees"
+            }
+         ],
+         "body":"this.degrees = degrees;"
+      },
+      "getcenter":{
+         "returnType":"string",
+         "description":"center",
+         "parameters":[
+            
+         ],
+         "body":"return this.center;"
+      },
+      "setcenter":{
+         "description":"center",
+         "parameters":[
+            {
+               "name":"center",
+               "type":"string",
+               "description":"Set Center"
+            }
+         ],
+         "body":"this.center = center;"
+      },
+      "getzoom":{
+         "returnType":"integer",
+         "description":"zoom",
+         "parameters":[
+            
+         ],
+         "body":"return this.zoom;"
+      },
+      "setzoom":{
+         "description":"zoom",
+         "parameters":[
+            {
+               "name":"zoom",
+               "type":"integer",
+               "description":"Set Zoom"
+            }
+         ],
+         "body":"this.zoom = zoom;"
+      }
+
+
+    },
+    "events": {
+      "onStart": {
+        "description": "onStart events trigger"
+      }
+    }
+  }
