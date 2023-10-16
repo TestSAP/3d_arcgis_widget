@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "name": "Compass_widget_aryan",
     "description": "Compass_Widget_Test_aryan",
-    "newInstancePrefix": "Compass_widget",
+    "newInstancePrefix": "Compass_widget_aryan",
     "icon": "",
     "vendor": "sap",
     "eula": "",
