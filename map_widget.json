@@ -1,9 +1,9 @@
 {
     "id": "com.sap.custom.map_widget",
-    "version": "1.2.0",
+    "version": "1.1.1",
     "name": "Map_Widget",
     "description": "Map_Widget_Test",
-    "newInstancePrefix": "Map_widget",
+    "newInstancePrefix": "Map_Widget",
     "icon": "",
     "vendor": "sap",
     "eula": "",
