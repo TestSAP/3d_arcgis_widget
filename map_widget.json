@@ -13,14 +13,14 @@
       {
         "kind": "main",
         "tag": "com-sap-custom-geomap",
-        "url": "https://github.com/TestSAP/map_widget/blob/main/compass_widget.js",
+        "url": "https://testsap.github.io/map_widget.js",
         "integrity": "",
         "ignoreIntegrity": true
       },
       {
         "kind": "builder",
         "tag": "com-sap-custom-geomap-builder",
-        "url": "https://github.com/TestSAP/map_widget/blob/main/compass_widget_builder.js",
+        "url": "https://testsap.github.io/map_widget_builder.js",
         "integrity": "",
         "ignoreIntegrity": true
       }
