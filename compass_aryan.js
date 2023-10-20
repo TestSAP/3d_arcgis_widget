@@ -5,7 +5,6 @@
     var gdegrees;
     var gcenter;
     var gzoom;
-    var gLocationData;
 
     template.innerHTML = `
     <head>
@@ -36,12 +35,39 @@
     `;
 
     function mainMap() {
-        require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer", "esri/Graphic"],
-        (Map, MapView, Compass, FeatureLayer, Graphic) => {
+        require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer","esri/widgets/LayerList", "esri/request", "dojo/domReady!",
+                 "esri/layers/GraphicsLayer", "esri/Graphic","esri/widgets/Legend", "esri/layers/GeoJSONLayer"],
+
+        (Map, MapView, Compass, FeatureLayer,LayerList, request, GraphicsLayer, Graphic, Legend, GeoJSONLayer) => {
 
           const map = new Map({
             basemap: "streets-vector"
           });
+
+          const renderer = {
+            type: 'simple',
+            field: 'name',
+            symbol: {
+                type: 'simple-marker',
+                color: 'orange',
+                outline: {color: 'white'}
+            },
+            visualVariables: [{
+                type: 'size',
+                field: 'name',
+                stops:
+                    [{value: 4, size: '8px'}, {value: 8, size: '40px'}]
+            }]
+          };
+
+          const geojsonlayer = new GeoJSONLayer({
+            url:"https://arcgistest65.github.io/testData.geojson",
+            copyright: 'Beacons',
+            popupTemplate: template,
+            renderer: renderer
+          });
+
+          map.add(geojsonlayer);
 
           gLayerURL.forEach(i => {
             const featureLayer = new FeatureLayer({
