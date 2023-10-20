@@ -66,7 +66,7 @@
             popupTemplate: template
           });
 
-          map.add(geojsonlayer);
+          map.layers.add(geojsonlayer);
 
           gLayerURL.forEach(i => {
             const featureLayer = new FeatureLayer({
