@@ -34,25 +34,17 @@
 
     `;
 
-    function mainMap(gLayerURL, gdegrees, gcenter, gzoom) {
-        require([
-            "esri/Map",
-            "esri/views/MapView",
-            "esri/widgets/Compass", 
-            "esri/layers/FeatureLayer",
-            "esri/widgets/LayerList", 
-            "esri/request", "dojo/domReady!",
-            "esri/layers/GraphicsLayer", 
-            "esri/Graphic","esri/widgets/Legend",
-            "esri/layers/GeoJSONLayer"
-        ],
-        function (Map, MapView, Compass, FeatureLayer, LayerList, request, GraphicsLayer, Graphic, Legend, GeoJSONLayer) { // Adjusted for 'function' instead of an arrow function
+    function mainMap() {
+        require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer","esri/widgets/LayerList", "esri/request",
+                 "esri/layers/GraphicsLayer", "esri/Graphic","esri/widgets/Legend", "esri/layers/GeoJSONLayer"],
 
-            const map = new Map({
-                basemap: "streets-vector"
-            });
+        (Map, MapView, Compass, FeatureLayer,LayerList, request, GraphicsLayer, Graphic, Legend, GeoJSONLayer) => {
 
-            const renderer = {
+          const map = new Map({
+            basemap: "streets-vector"
+          });
+
+          const renderer = {
             type: 'simple',
             field: 'name',
             symbol: {
@@ -68,21 +60,13 @@
             }]
           };
 
-           const geojsonLayer = new GeoJSONLayer({
-                url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
-                copyright: 'Beacons',
-                popupTemplate: template
-            });
+          const geojsonlayer = new GeoJSONLayer({
+            url:"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
+          });
 
-            // Make sure that the layer is correctly instantiated and the promise is resolved.
-            geojsonLayer.load().then(function () {
-                // The layer is loaded. Now you can add it to the map.
-                map.add(geojsonLayer);  // Add layer to the map.
-            }).catch(function (error) {
-                console.error("[GeoJSONLayer Load Error]: ", error);
-            });
+          map.add(geojsonlayer);
 
-            gLayerURL.forEach(i => {
+          gLayerURL.forEach(i => {
             const featureLayer = new FeatureLayer({
                 url: i
             });
@@ -113,79 +97,72 @@
     }
 
 
-        class CustomMapElement extends HTMLElement {
-    constructor() {
-        super(); // It calls the parent class constructor
+        class Map extends HTMLElement
+        {
+            constructor() {
+                super();
 
-        // (Recommended) Create a shadow DOM for this web component
-        this.attachShadow({ mode: 'open' }); // sets and returns 'this.shadowRoot'
+                this.appendChild(template.content.cloneNode(true));
+                this._props = {};
 
-        // Initialize your component state and bind methods here
-        this.gLayerURL = [];
-        this.gdegrees = 0;
-        this.gcenter = [0, 0]; // example coordinates
-        this.gzoom = 1; // example zoom level
+            } //end of constructor
 
-        // Bind 'this' to the method, so it can be used as a callback
-        this.mainMapSetup = this.mainMapSetup.bind(this);
-    }
+            onCustomWidgetBeforeUpdate() {
+                mainMap()
+            }
 
-    // Lifecycle method called when the element is inserted into the DOM
-    connectedCallback() {
-        if (this.isConnected) {
-            // Perform any setup work here
-            // Ensure all properties are correctly initialized before calling setup methods
-            this.mainMapSetup();
-        }
-    }
+            onCustomWidgetAfterUpdate(oChangedProperties) {
+              if ('layerURL' in oChangedProperties) {
+                gLayerURL = oChangedProperties['layerURL'].split(',').map(item => item.trim());
+              }
+              if ('degrees' in oChangedProperties) {
+                gdegrees = oChangedProperties['degrees'];
+              }
+              if ('center' in oChangedProperties) {
+                gcenter = JSON.parse(oChangedProperties['center']);
+              }
+              if ('zoom' in oChangedProperties) {
+                gzoom = oChangedProperties['zoom'];
+              }
+              mainMap()
+            }
 
-    // Observe attribute changes for reactive updates
-    static get observedAttributes() {
-        return ['layerurl', 'degrees', 'center', 'zoom']; // Add attributes to observe (note the lowercase attribute names)
-    }
+        } //end of class
 
-    // Handle changes to observed attributes
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'layerurl':
-                this.gLayerURL = newValue.split(',').map(item => item.trim());
-                break;
-            case 'degrees':
-                this.gdegrees = parseFloat(newValue);
-                break;
-            case 'center':
-                this.gcenter = JSON.parse(newValue);
-                break;
-            case 'zoom':
-                this.gzoom = parseInt(newValue, 10);
-                break;
-            default:
-                // log or handle any unforeseen attributes
-                break;
+        let scriptSrc = "https://js.arcgis.com/4.18/"
+        let onScriptLoaded = function() {
+            customElements.define("com-sap-custom-geomap", Map);
         }
 
-        // If needed, you could re-render or update configurations each time an attribute changes
-        // But be cautious with this - you may need to check that properties are not being changed during the initial setup
-        // to avoid infinite loops or excessive operations
-        this.mainMapSetup();
-    }
+        //SHARED FUNCTION: reuse between widgets
+        //function(src, callback) {
+        let customElementScripts = window.sessionStorage.getItem("customElementScripts") || [];
+        let scriptStatus = customElementScripts.find(function(element) {
+            return element.src == scriptSrc;
+        });
 
-    // Method for setting up your main map
-    mainMapSetup() {
-        // Ensure that all required properties are set and valid
-        if (this.gLayerURL.length && this.gcenter.length) {
-            // Now we're calling 'mainMap' with the current state of our properties
-            mainMap(this.gLayerURL, this.gdegrees, this.gcenter, this.gzoom);
+        if (scriptStatus) {
+            if(scriptStatus.status == "ready") {
+                onScriptLoaded();
+            } else {
+                scriptStatus.callbacks.push(onScriptLoaded);
+            }
         } else {
-            console.error("Required properties not yet set or invalid");
+            let scriptObject = {
+                "src": scriptSrc,
+                "status": "loading",
+                "callbacks": [onScriptLoaded]
+            }
+            customElementScripts.push(scriptObject);
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = scriptSrc;
+            script.onload = function(){
+                scriptObject.status = "ready";
+                scriptObject.callbacks.forEach((callbackFn) => callbackFn.call());
+            };
+            document.head.appendChild(script);
         }
-    }
 
-    // (Optional) Lifecycle method called when the element is removed from the DOM
-    disconnectedCallback() {
-        // Clean up if needed (e.g., remove event listeners or clearInterval/setTimeout)
-    }
-}
-
-// Define a custom element for the GeoMap, associated with the 'CustomMapElement' class
-customElements.define("com-sap-custom-geomap", CustomMapElement);
+//END SHARED FUNCTION
+})();
