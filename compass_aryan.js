@@ -66,6 +66,8 @@
             popupTemplate: template
           });
 
+          map.add(geojsonlayer);
+
           gLayerURL.forEach(i => {
             const featureLayer = new FeatureLayer({
                 url: i
@@ -93,7 +95,6 @@
           view.ui.add(compassWidget, "top-left");
           view.constraints = {rotationEnabled: false};
           view.rotation = gdegrees;
-          view.geojsonlayer = geojsonlayer;
         });
     }
 
