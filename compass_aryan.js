@@ -129,7 +129,7 @@
 
         } //end of class
 
-        let scriptSrc = "https://js.arcgis.com/4.18/"
+        let scriptSrc = "https://js.arcgis.com/4.27/"
         let onScriptLoaded = function() {
             customElements.define("com-sap-custom-geomap", Map);
         }
