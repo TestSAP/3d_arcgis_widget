@@ -66,14 +66,13 @@
             popupTemplate: template
           });
 
-          map.layers.add(geojsonlayer);
-
           gLayerURL.forEach(i => {
             const featureLayer = new FeatureLayer({
                 url: i
             });
             map.add(featureLayer);
           });
+          map.layers.add(geojsonlayer);
 
           const view = new MapView({
             container: "viewDiv",
