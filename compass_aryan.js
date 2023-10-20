@@ -72,7 +72,6 @@
             });
             map.add(featureLayer);
           });
-          map.layers.add(geojsonlayer);
 
           const view = new MapView({
             container: "viewDiv",
@@ -94,6 +93,7 @@
           view.ui.add(compassWidget, "top-left");
           view.constraints = {rotationEnabled: false};
           view.rotation = gdegrees;
+          view.geojsonlayer = geojsonlayer;
         });
     }
 
