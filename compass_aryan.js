@@ -57,26 +57,6 @@
             zoom: gzoom,
             center: gcenter,
           });
-
-
-          // Fetch data from SAC Model
-          fetchCoordinatesFromModel().then(coordinates => {
-            coordinates.forEach(coord => {
-                let point = {
-                    type: "point",
-                    longitude: coord[0],
-                    latitude: coord[1]
-                };
-                let pointGraphic = new Graphic({
-                    geometry: point,
-                    symbol: {
-                        type: "simple-marker",
-                        color: "blue"
-                    }
-                });
-                view.graphics.add(pointGraphic);
-            });
-          });
   
           /********************************
            * Create a compass widget object.
@@ -91,18 +71,6 @@
           view.constraints = {rotationEnabled: false};
           view.rotation = gdegrees;
         });
-    }
-
-    // Function to fetch coordinates from the SAC Model
-    async function fetchCoordinatesFromModel() {
-      // Assuming SAC provides an API to fetch model data
-      let response = await fetch("https://ey-global-services-25.eu10.hcs.cloud.sap/sap/fpa/ui/tenants/6ea38#view_id=model;model_id=C25Y56D0YFGKVMXCRIYU6KZEGW");
-      let data = await response.json();
-
-      // Extract coordinates
-      return data.map(row => {
-          return row.Location.split(',').map(Number); // assuming 'Location' is the dimension name
-      });
     }
 
 
