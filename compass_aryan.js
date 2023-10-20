@@ -61,7 +61,7 @@
           };
 
           const geojsonlayer = new GeoJSONLayer({
-            url:"https://arcgistest65.github.io/testData.geojson",
+            url:"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
             popupTemplate: template
           });
 
