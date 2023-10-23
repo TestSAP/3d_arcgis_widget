@@ -35,13 +35,19 @@
     `;
 
     function mainMap() {
-        require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer"],
-        (Map, MapView, Compass, FeatureLayer) => {
+        require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer", "esri/layers/GeoJSONLayer"],
+        (Map, MapView, Compass, FeatureLayer, GeoJSONLayer) => {
 
           const map = new Map({
             basemap: "streets-vector"
           });
-
+          
+          const geojsonlayer = new GeoJSONLayer({
+            url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
+            copyright: "USGS Earthquakes"
+          });
+          map.add(geojsonlayer);
+            
           gLayerURL.forEach(i => {
             const featureLayer = new FeatureLayer({
                 url: i
