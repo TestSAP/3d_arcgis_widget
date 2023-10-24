@@ -42,13 +42,14 @@
             basemap: "streets-vector"
           });
           
-          const geojsonlayer = new GeoJSONLayer({
-            url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
-            copyright: "USGS Earthquakes"
-          });
-          map.add(geojsonlayer);
+          // // const geojsonlayer = new GeoJSONLayer({
+          //   url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
+          //   copyright: "USGS Earthquakes"
+          // });
+          // // map.add(geojsonlayer);
             
-          gLayerURL.forEach(i => {
+            const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
+            gLayerURL.forEach(i => {
             const featureLayer = new FeatureLayer({
                 url: i
             });
