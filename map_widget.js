@@ -48,12 +48,60 @@
           // });
           // // map.add(geojsonlayer);
             
-            const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
-            gLayerURL.forEach(i => {
-            const featureLayer = new FeatureLayer({
-                url: i
-            });
-            map.add(featureLayer);
+          const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
+          const template = {
+              title: "Earthquake Info",
+              content: "Magnitude {mag} {type} hit {place} on {time}",
+              fieldInfos: [
+                  {
+                      fieldName: 'time',
+                      format: {
+                          dateFormat: 'short-date-short-time'
+                      }
+                  }
+              ]
+          };
+            
+          const renderer = {
+              type: "simple",
+              field: "mag",
+              symbol: {
+                  type: "simple-marker",
+                  color: "orange",
+                  outline: {
+                      color: "white"
+                  }
+              },
+              visualVariables: [{
+                  type: "size",
+                  field: "mag",
+                  stops: [{
+                      value: 2.5,
+                      size: "4px"
+                  },
+                  {
+                      value: 8,
+                      size: "40px"
+                  }
+                  ]
+              }]
+          };
+        
+          const geojsonLayer = new GeoJSONLayer({
+              url: url,
+              copyright: "USGS Earthquakes",
+              popupTemplate: template,
+              renderer: renderer,
+              orderBy: {
+                  field: "mag"
+              }
+          });
+            
+          gLayerURL.forEach(i => {
+              const featureLayer = new FeatureLayer({
+                  url: i
+              });
+              map.add(featureLayer);
           });
 
           const view = new MapView({
