@@ -39,7 +39,8 @@
         (Map, MapView, Compass, FeatureLayer, GeoJSONLayer) => {
 
           const map = new Map({
-            basemap: "streets-vector"
+            basemap: "streets-vector",
+            layers: [geojsonLayer]
           });
           
           // // const geojsonlayer = new GeoJSONLayer({
