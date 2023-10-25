@@ -1,9 +1,9 @@
 {
-    "id": "com.sap.custom.map_widget",
-    "version": "1.1.1",
-    "name": "Map_Widget",
-    "description": "Map_Widget_Test",
-    "newInstancePrefix": "Map_Widget",
+    "id": "com.sap.custom.mapWidget_1",
+    "version": "1.1.2",
+    "name": "Map_Widget_2",
+    "description": "Map_Widget_Test2",
+    "newInstancePrefix": "Map_Widget_2",
     "icon": "",
     "vendor": "sap",
     "eula": "",
@@ -13,14 +13,14 @@
       {
         "kind": "main",
         "tag": "com-sap-custom-geomap",
-        "url": "https://testsap.github.io/map_widget.js",
+        "url": "https://testsap.github.io/MapWidget.js",
         "integrity": "",
         "ignoreIntegrity": true
       },
       {
         "kind": "builder",
         "tag": "com-sap-custom-geomap-builder",
-        "url": "https://testsap.github.io/map_widget_builder.js",
+        "url": "https://testsap.github.io/MapWidget_builder.js",
         "integrity": "",
         "ignoreIntegrity": true
       }
