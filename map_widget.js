@@ -39,29 +39,8 @@
         (Map, MapView, Compass, FeatureLayer, GeoJSONLayer) => {
 
           const map = new Map({
-            basemap: "streets-vector",
-            layers: [geojsonLayer]
+            basemap: "streets-vector"
           });
-          
-          // // const geojsonlayer = new GeoJSONLayer({
-          //   url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
-          //   copyright: "USGS Earthquakes"
-          // });
-          // // map.add(geojsonlayer);
-            
-          const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
-          const template = {
-              title: "Earthquake Info",
-              content: "Magnitude {mag} {type} hit {place} on {time}",
-              fieldInfos: [
-                  {
-                      fieldName: 'time',
-                      format: {
-                          dateFormat: 'short-date-short-time'
-                      }
-                  }
-              ]
-          };
             
           const renderer = {
               type: "simple",
@@ -88,15 +67,11 @@
               }]
           };
         
-          const geojsonLayer = new GeoJSONLayer({
-              url: url,
-              copyright: "USGS Earthquakes",
-              popupTemplate: template,
-              renderer: renderer,
-              orderBy: {
-                  field: "mag"
-              }
+          const geojsonlayer = new GeoJSONLayer({
+            url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
+            popupTemplate: template
           });
+          map.add(geojsonlayer);
             
           gLayerURL.forEach(i => {
               const featureLayer = new FeatureLayer({
@@ -161,7 +136,7 @@
 
         } //end of class
 
-        let scriptSrc = "https://js.arcgis.com/4.18/"
+        let scriptSrc = "https://js.arcgis.com/4.27/"
         let onScriptLoaded = function() {
             customElements.define("com-sap-custom-geomap", Map);
         }
