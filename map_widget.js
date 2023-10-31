@@ -34,6 +34,14 @@
 
     `;
 
+
+    function removeString(stringCoor) {
+        var LatLng = stringCoor.replace('[', '').replace(']', '').split(',');
+        var Lat = parseFloat(LatLng[0]);
+        var Lng = parseFloat(LatLng[1]);
+        return [Lng, Lat]
+    }
+    
     function mainMap() {
         require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer", "esri/layers/GeoJSONLayer"],
         (Map, MapView, Compass, FeatureLayer, GeoJSONLayer) => {
