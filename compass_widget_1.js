@@ -525,6 +525,11 @@
       this.appendChild(template.content.cloneNode(true));
       this._props = {};
       let that = this;
+         getSelection() 
+        {
+         return this._currentSelection;
+       }
+
 
       require(
         [
@@ -543,6 +548,12 @@
     getSelection() {
       return this._currentSelection;
     }
+      
+    fetchDataFromChart() {
+      // Use the SAP Analytics Cloud API to fetch data from a chart
+      // Fetch data from a chart and assign it to locationData
+     locationData = fetchDataFromSACChart();
+   }
 
     // function executed on initialisation
     // function executed 2 times. first returns default value of variable &
@@ -552,6 +563,11 @@
       locationData = this.$chartData;
       if (locationData && !(gPortalID == null) && mapValue == 0)
         mainMap();
+    }
+
+        onCustomWidgetBeforeUpdate(oChangedProperties) {
+         // Fetch data from the chart before updating
+        this.fetchDataFromChart();
     }
 
     ////function executed on variable updates
