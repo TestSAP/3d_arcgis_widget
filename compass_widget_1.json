@@ -13,7 +13,7 @@
       {
         "kind": "main",
         "tag": "com-sap-custom-geomap",
-        "url": "https://testsap.github.io/compass_widget.js",
+        "url": "https://github.com/TestSAP/TestSAP.github.io/blob/main/compass_widget_1.js",
         "integrity": "",
         "ignoreIntegrity": true
       },
