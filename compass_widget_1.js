@@ -43,6 +43,9 @@
     `;
 
 
+  //  fetch(https://ey-global-services-25.eu10.hcs.cloud.sap/sap/fpa/ui/app.html#/analyticapp&/aa/BA45D0589FB29287ABF8A582C05D41D/?mode=edit)
+
+
 
   // Convert string coordinate from geojson file to array of cooor
   function removeString(stringCoor) {
