@@ -143,7 +143,7 @@
             ],
             maxDensity: 100,
             minDensity: 0,
-            radius: 5,
+            radius: 5
           };
         });
     }
