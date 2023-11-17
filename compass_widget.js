@@ -71,6 +71,7 @@
           properties: {
             beaconId: row.beaconID,
             aisle_name: row.beaconName,
+            units_sold: row.Units_Sold
           },
           id: parseFloat(row.beaconID),
         };
@@ -125,7 +126,7 @@
           // information on how to display the beacons(point format)
           renderer = {
             type: "heatmap",
-            field: "Units_Sold",
+            field: "units_Sold",
             colorStops: [
               { color: "rgba(63, 40, 102, 0)", ratio: 0 },
               { color: "#472b77", ratio: 0.083 },
