@@ -141,7 +141,7 @@
               { color: "#e0cf40", ratio: 0.913 },
               { color: "#ffff00", ratio: 1 }
             ],
-            maxDensity: 100,
+            maxDensity: 0.001,
             minDensity: 0
           };
         });
