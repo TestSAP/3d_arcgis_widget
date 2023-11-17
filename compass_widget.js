@@ -114,7 +114,6 @@
   
           // Add the Compass widget to the top left corner of the view
           view.ui.add(compassWidget, "top-left");
-          view.constraints = {rotationEnabled: false};
           view.rotation = gdegrees;
 
           // template to display additional details for the beacon when selected
@@ -126,7 +125,7 @@
           // information on how to display the beacons(point format)
           renderer = {
             type: "heatmap",
-            
+            field: "measure",
             colorStops: [
               { color: "rgba(63, 40, 102, 0)", ratio: 0 },
               { color: "#472b77", ratio: 0.083 },
@@ -142,7 +141,7 @@
               { color: "#e0cf40", ratio: 0.913 },
               { color: "#ffff00", ratio: 1 }
             ],
-            maxDensity: 1,
+            maxDensity: 0.01,
             minDensity: 0
           };
         });
