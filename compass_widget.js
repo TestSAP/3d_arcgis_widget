@@ -125,7 +125,7 @@
           // information on how to display the beacons(point format)
           renderer = {
             type: "heatmap",
-            field: "Units Sold",
+            // field: "Units Sold",
             colorStops: [
               { color: "rgba(63, 40, 102, 0)", ratio: 0 },
               { color: "#472b77", ratio: 0.083 },
