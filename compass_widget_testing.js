@@ -21,6 +21,7 @@
     var gBStopSize;
     var glayerOption = "off";
     var mapValue = 0;
+    var heatmapLayer;
     
 
     template.innerHTML = `
@@ -71,6 +72,7 @@
           properties: {
             beaconId: row.beaconID,
             aisle_name: row.beaconName,
+            units_sold: row.Units_Sold
           },
           id: parseFloat(row.beaconID),
         };
@@ -80,7 +82,7 @@
     }
 
     function mainMap() {
-        require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer"],
+        require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer","esri/renderers/HeatmapRenderer"],
         (Map, MapView, Compass, FeatureLayer) => {
 
           mapValue = 1;
@@ -114,7 +116,6 @@
   
           // Add the Compass widget to the top left corner of the view
           view.ui.add(compassWidget, "top-left");
-          view.constraints = {rotationEnabled: false};
           view.rotation = gdegrees;
 
           // template to display additional details for the beacon when selected
@@ -125,28 +126,26 @@
   
           // information on how to display the beacons(point format)
           renderer = {
-            type: 'simple',
-            field: 'name',
-            symbol: {
-              type: 'simple-marker',
-              color: gBeaconColor,
-              outline: {
-                color: gBOColor,
-              },
-            },
-            visualVariables: [{
-              type: 'size',
-              field: 'name',
-              stops: [{
-                  value: 4,
-                  size: gBstartSize,
-                },
-                {
-                  value: 8,
-                  size: gBStopSize,
-                },
-              ],
-            }, ],
+            type: "heatmap",
+            // field: "units_sold",
+            colorStops: [
+              { color: "rgba(63, 40, 102, 0)", ratio: 0 },
+              { color: "#472b77", ratio: 0.083 },
+              { color: "#4e2d87", ratio: 0.166 },
+              { color: "#563098", ratio: 0.249 },
+              { color: "#5d32a8", ratio: 0.332 },
+              { color: "#6735be", ratio: 0.415 },
+              { color: "#7139d4", ratio: 0.498 },
+              { color: "#7b3ce9", ratio: 0.581 },
+              { color: "#853fff", ratio: 0.664 },
+              { color: "#a46fbf", ratio: 0.747 },
+              { color: "#c29f80", ratio: 0.83 },
+              { color: "#e0cf40", ratio: 0.913 },
+              { color: "#ffff00", ratio: 1 }
+            ],
+            maxDensity: 1,
+            minDensity: 0
+            // radius: 10;
           };
         });
     }
@@ -155,10 +154,12 @@
     function processbeacons() {
       require(
         [
+          "esri/renderers/HeatmapRenderer",
           'esri/layers/GeoJSONLayer',
+          
         ],
-        (GeoJSONLayer) => {
-  
+        (GeoJSONLayer, HeatmapRenderer) => {
+          console.log(locationData)
           pointArrFeatureCollection = {};
           pointArrFeatureCollection = {
             type: 'FeatureCollection',
@@ -180,15 +181,24 @@
           geojsonlayer = new GeoJSONLayer({
             url,
             popupTemplate: templates,
-            renderer: renderer
+            renderer: new HeatmapRenderer({
+              field: heatmapLayer,
+          })
           });
-  
-          if (glayerOption == "on") {
-            // add the beacons to the webscene
-            map.add(geojsonlayer);
-            iniValue = 1;
-          }
-  
+          
+         //heatmapLayer = new GeoJSONLayer({
+          //url,
+          //popupTemplate: templates,
+         // renderer: renderer
+        //});
+
+        if (glayerOption == "on") {
+          // add the beacons to the webscene
+          webscene.add(geojsonlayer);
+          webscene.add(heatmapLayer);
+          iniValue = 1;
+        }
+
         });
     } // end of function bracket
 
