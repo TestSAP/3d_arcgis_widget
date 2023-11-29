@@ -186,16 +186,11 @@
           })
           });
           
-         //heatmapLayer = new GeoJSONLayer({
-          //url,
-          //popupTemplate: templates,
-         // renderer: renderer
-        //});
 
         if (glayerOption == "on") {
           // add the beacons to the webscene
           webscene.add(geojsonlayer);
-          webscene.add(heatmapLayer);
+         // webscene.add(heatmapLayer);
           iniValue = 1;
         }
 
