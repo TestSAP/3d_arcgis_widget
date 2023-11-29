@@ -87,6 +87,9 @@
           mapValue = 1;
 
 
+          map = new Map({
+            basemap: "streets-vector"
+          });
 
           gLayerURL.forEach(i => {
             const featureLayer = new FeatureLayer({
