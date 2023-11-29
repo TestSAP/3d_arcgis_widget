@@ -14,14 +14,14 @@
     {
       "kind": "main",
       "tag": "com-sap-sac-sample-echarts-sankeyyg",
-      "url": "/main.js",
+      "url": "https://testsap.github.io/sankeyChartMain.js",
       "integrity": "",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-sap-sac-sample-echarts-sankeyyg-styling",
-      "url": "/sankeyChartStyling.js",
+      "url": "https://testsap.github.io/sankeyChartStyling.js",
       "integrity": "",
       "ignoreIntegrity": true
     }
