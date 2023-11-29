@@ -20,6 +20,7 @@
   var glegendOption = "off";
   var glayerOption = "off";
   var mapValue = 0;
+  console.log("test 1 loaded");
 
 
 
