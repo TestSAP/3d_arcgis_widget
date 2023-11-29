@@ -1,5 +1,5 @@
 
-(function() {
+(function () {
   let template = document.createElement('template');
   var locationData; // holds up each beacons data
   var webscene;
@@ -148,22 +148,16 @@
             type: 'size',
             field: 'name',
             stops: [{
-                value: 4,
-                size: gBstartSize,
-              },
-              {
-                value: 8,
-                size: gBStopSize,
-              },
+              value: 4,
+              size: gBstartSize,
+            },
+            {
+              value: 8,
+              size: gBStopSize,
+            },
             ],
-          }, ],
+          },],
         };
-
-
-
-
-
-
 
       });
 
@@ -235,10 +229,10 @@
       this.appendChild(template.content.cloneNode(true));
       this._props = {};
       let that = this;
-         getSelection() 
-        {
-         return this._currentSelection;
-       }
+      getSelection()
+      {
+        return this._currentSelection;
+      }
 
 
       require(
@@ -258,12 +252,12 @@
     getSelection() {
       return this._currentSelection;
     }
-      
+
     fetchDataFromChart() {
       // Use the SAP Analytics Cloud API to fetch data from a chart
       // Fetch data from a chart and assign it to locationData
-     locationData = fetchDataFromSACChart();
-   }
+      locationData = fetchDataFromSACChart();
+    }
 
     // function executed on initialisation
     // function executed 2 times. first returns default value of variable &
@@ -275,9 +269,9 @@
         mainMap();
     }
 
-        onCustomWidgetBeforeUpdate(oChangedProperties) {
-         // Fetch data from the chart before updating
-        this.fetchDataFromChart();
+    onCustomWidgetBeforeUpdate(oChangedProperties) {
+      // Fetch data from the chart before updating
+      this.fetchDataFromChart();
     }
 
     ////function executed on variable updates
@@ -328,8 +322,9 @@
 
   } // end of class
   let scriptSrc = 'https://js.arcgis.com/4.18/'
+  console.log("script loaded");
   let onScriptLoaded =
-    function() {
+    function () {
       customElements.define('com-sap-custom-jumbo-beacon-interface', Map);
     }
 
@@ -337,7 +332,7 @@
   // function(src, callback) {
   let customElementScripts =
     window.sessionStorage.getItem('customElementScripts') || [];
-  let scriptStatus = customElementScripts.find(function(element) {
+  let scriptStatus = customElementScripts.find(function (element) {
     return element.src == scriptSrc;
   });
 
@@ -357,7 +352,7 @@
     var script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = scriptSrc;
-    script.onload = function() {
+    script.onload = function () {
       scriptObject.status = 'ready';
       scriptObject.callbacks.forEach((callbackFn) => callbackFn.call());
     };
@@ -365,4 +360,4 @@
   }
 
   // END SHARED FUNCTION
-}); // end of class
+})(); // end of class
