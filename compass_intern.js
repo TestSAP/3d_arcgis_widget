@@ -85,10 +85,21 @@
         (Map, MapView, Compass, FeatureLayer) => {
 
           mapValue = 1;
+        const url = "https://services1.arcgis.com/4yjifSiIG17X0gW4/arcgis/rest/services/FatalAccidents2017/FeatureServer";
 
-          map = new Map({
-            basemap: "streets-vector"
-          });
+        const layer = new FeatureLayer({
+          title: "Fatal car accidents (2017)",
+          url
+        });
+        const map = new WebMap({
+          basemap: {
+            portalItem: {
+              id: "466f3f43c231453c938c6776777b89e2"
+            }
+          },
+          layers: [ layer ]
+        });
+
 
           gLayerURL.forEach(i => {
             const featureLayer = new FeatureLayer({
