@@ -365,4 +365,4 @@
   }
 
   // END SHARED FUNCTION
-})(); // end of class
+}); // end of class
