@@ -109,14 +109,7 @@
            * Create a compass widget object.
            *********************************/
   
-          const compassWidget = new Compass({
-            view: view
-          });
-  
-          // Add the Compass widget to the top left corner of the view
-          view.ui.add(compassWidget, "top-left");
-          view.rotation = gdegrees;
-
+   
           // template to display additional details for the beacon when selected
           templates = {
             title: 'Beacon Detail',
