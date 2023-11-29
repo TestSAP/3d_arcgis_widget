@@ -5,6 +5,8 @@ var getScriptPromisify = (src) => {
 };
 
 (function () {
+    console.log("script loaded");
+
   const parseMetadata = metadata => {
     const { dimensions: dimensionsMap, mainStructureMembers: measuresMap } = metadata
     const dimensions = []
