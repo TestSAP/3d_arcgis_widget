@@ -18,6 +18,7 @@
   var gBOColor;
   var gBstartSize;
   var gBStopSize;
+  var glayerOption = "off";
   var mapValue = 0;
 
 
