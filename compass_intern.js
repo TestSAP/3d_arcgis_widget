@@ -170,7 +170,7 @@
         });
         map.add(geojsonlayer);
         iniValue = 1;
-
+        console.log("layer loaded");
 
       });
   } // end of function bracket
