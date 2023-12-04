@@ -99,7 +99,7 @@
           map.add(featureLayer);
         });
         
-        renderer = {
+       const renderer = {
           type: "heatmap",
           field: "order_value",
          // colorStops: [
