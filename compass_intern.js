@@ -60,6 +60,7 @@
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
     const geoJSONPointArr = jsonObject.map((row) => {
+      console.log(row);
       return {
         type: 'Feature',
         geometry: {
@@ -69,7 +70,7 @@
         properties: {
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
-          units_sold: row.Units_Sold
+          order_value: row.Order_Value
         },
         id: parseFloat(row.beaconID),
       };
