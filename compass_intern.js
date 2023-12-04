@@ -62,7 +62,7 @@
       //console.log(row["@MeasureDimension"]);
 
       console.log("here");
-      console.log(row);
+      console.log(row.Order_Value_2);
       return {
         type: 'Feature',
         geometry: {
@@ -73,7 +73,7 @@
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
           units_sold: row.Units_Sold,
-          order_value: row.Order_Value_2, 
+          order_value: std(row.Order_Value_2),
         },
         id: parseFloat(row.beaconID),
       };
@@ -81,7 +81,15 @@
 
     return geoJSONPointArr;
   }
-
+  function std(list) {
+    var list2;
+    for (var x in list) {
+      list2.add(parseFloat(x) * 10);
+    }
+    console.log(list2);
+    console("not here");
+    return list2;
+  }
   function mainMap() {
     require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer"],
       (Map, MapView, Compass, FeatureLayer) => {
@@ -142,11 +150,11 @@
             { color: "#000000", ratio: 0.19 },//dark
             { color: "#c29f80", ratio: 0.83 },
             { color: "#e0cf40", ratio: 0.913 },
-            { color: "#ffff00", ratio: 1 }//grey
+            { color: "#7f7f7f", ratio: 1 }//grey
           ],
-          maxDensity: 0.01,
-          minDensity: 0,
-          radius: 10
+          maxDensity: 0.1,
+          minDensity: 0
+          // radius: 10
         };
       });
   }
