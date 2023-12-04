@@ -60,9 +60,7 @@
   function j2gConvert(jsonObject) {
     const geoJSONPointArr = jsonObject.map((row) => {
       //console.log(row["@MeasureDimension"]);
-
-      console.log("here");
-      console.log(row.Order_Value_2);
+      //console.log(row.Order_Value_2);
       return {
         type: 'Feature',
         geometry: {
@@ -73,7 +71,7 @@
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
           units_sold: row.Units_Sold,
-          order_value: std(row.Order_Value_2),
+          order_value: row.Order_Value_2,
         },
         id: parseFloat(row.beaconID),
       };
@@ -81,14 +79,7 @@
 
     return geoJSONPointArr;
   }
-  function std(x) {
 
-    var sum = 75253;
-    y=parseFloat(x)/sum*10;
-    console.log(y);
-    console.log("not here");
-    return parseFloat(y);
-  }
   function mainMap() {
     require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer"],
       (Map, MapView, Compass, FeatureLayer) => {
