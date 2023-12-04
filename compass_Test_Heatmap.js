@@ -104,7 +104,7 @@
           field: "order_value",
           maxDensity: 0.0001,
           minDensity: 0,
-          radius: 100
+          radius: 500
         };
        
         const view = new MapView({
@@ -115,12 +115,6 @@
           center: [0, 0]
         });
 
-        view.ui.add(
-          new Legend({
-            view: view
-          }),
-          "bottom-left"
-        );
         /********************************
          * Create a compass widget object.
          *********************************/
