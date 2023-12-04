@@ -84,7 +84,7 @@
   function std(list) {
     var list2;
     for (var x in list) {
-      list2.add(parseFloat(x) * 10);
+      list2.push(parseFloat(x) * 10);
     }
     console.log(list2);
     console("not here");
