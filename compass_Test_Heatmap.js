@@ -83,8 +83,8 @@
   }
 
   function mainMap() {
-    require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer", "esri/widgets/Legend"],
-      (Map, MapView, Compass, FeatureLayer, Legend) => {
+    require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer"],
+      (Map, MapView, Compass, FeatureLayer) => {
 
         mapValue = 1;
 
@@ -99,11 +99,28 @@
           map.add(featureLayer);
         });
         
-       renderer = {
+        renderer = {
           type: "heatmap",
           field: "order_value",
+          colorStops: [
+            { color: "rgba(63, 40, 102, 0)", ratio: 0 },
+            { color: "#472b77", ratio: 0.1 },
+            { color: "#ffff00", ratio: 0.2 },//yellow
+            { color: "#563098", ratio: 0.3 },
+            { color: "#f7072f", ratio: 0.4 },//red
+            { color: "#6735be", ratio: 0.53 },
+            { color: "#ffffff", ratio: 0.65 },//white
+            { color: "#08f60e", ratio: 0.70 },//green
+            { color: "#853fff", ratio: 0.80 },
+            { color: "#000000", ratio: 0.85 },//dark
+            { color: "#c29f80", ratio: 0.90 },
+            { color: "#e0cf40", ratio: 0.95 },
+            { color: "#ffff00", ratio: 1 }//grey
+          ],
           maxDensity: 0.0001,
           minDensity: 0,
+
+          
           radius: 500
         };
        
@@ -112,7 +129,7 @@
           //scale: 500000,
           map: map,
           zoom: 2,
-          center: [0, 0]
+          center: [0, 0],
         });
 
         /********************************
@@ -275,4 +292,3 @@
 
   //END SHARED FUNCTION
 })();
-
