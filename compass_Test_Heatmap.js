@@ -102,26 +102,9 @@
        renderer = {
           type: "heatmap",
           field: "order_value",
-         // colorStops: [
-           // { color: "rgba(63, 40, 102, 0)", ratio: 0 },
-           // { color: "#472b77", ratio: 0.03 },
-           // { color: "#ffff00", ratio: 0.04 },//yellow
-           // { color: "#563098", ratio: 0.07 },
-           // { color: "#f7072f", ratio: 0.1 },//red
-           // { color: "#6735be", ratio: 0.13 },
-           // { color: "#ffffff", ratio: 0.15 },//white
-           // { color: "#08f60e", ratio: 0.17 },//green
-           // { color: "#853fff", ratio: 0.18 },
-           // { color: "#000000", ratio: 0.19 },//dark
-           // { color: "#c29f80", ratio: 0.83 },
-           // { color: "#e0cf40", ratio: 0.913 },
-           // { color: "#ffff00", ratio: 1 }//grey
-         // ],
           maxDensity: 0.0001,
           minDensity: 0,
-
-          //referenceScale: 36111
-         radius: 100
+          radius: 100
         };
        
         const view = new MapView({
