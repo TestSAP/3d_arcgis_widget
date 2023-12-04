@@ -18,9 +18,8 @@
   var gBOColor;
   var gBstartSize;
   var gBStopSize;
-  var glayerOption = "off";
   var mapValue = 0;
-
+  //var measure = '';
 
   template.innerHTML = `
     <head>
@@ -58,9 +57,19 @@
     return [Lng, Lat]
   }
 
+  // assuming orderValueArr is the array that contains your units sold data
+    let orderValueArr = locationData.map(item => item.Units_Sold);
+    let minOrderValue = Math.min(...orderValueArr);
+    let maxOrderValue= Math.max(...orderValueArr);
+    
+    orderValueArr = orderValueArr.map(order => (order - minOrderValue) / (maxOrderValue - minOrderValue));
+
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
     const geoJSONPointArr = jsonObject.map((row) => {
+      console.log(row);
+      console.log(row.Order_Value);
+
       return {
         type: 'Feature',
         geometry: {
@@ -70,7 +79,8 @@
         properties: {
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
-          units_sold: row.Units_Sold
+          order_value: row.Order_Value,
+          density: unitsSoldArr[i]
         },
         id: parseFloat(row.beaconID),
       };
@@ -125,7 +135,9 @@
         // information on how to display the beacons(point format)
         renderer = {
           type: "heatmap",
-          // field: "units_sold",
+          visualVariables: [{
+            type: "color",
+            field: "density",
           colorStops: [
             { color: "rgba(63, 40, 102, 0)", ratio: 0 },
             { color: "#472b77", ratio: 0.083 },
@@ -141,6 +153,7 @@
             { color: "#e0cf40", ratio: 0.913 },
             { color: "#ffff00", ratio: 1 }
           ],
+        }],
           maxDensity: 1,
           minDensity: 0
           // radius: 10;
@@ -179,14 +192,10 @@
           popupTemplate: templates,
           renderer: renderer
         });
-
-        if (glayerOption == "on") {
-            // add the beacons to the webscene
-            map.add(geojsonlayer);
-            iniValue = 1;
-          }
-      
+        map.add(geojsonlayer);
+        iniValue = 1;
         console.log("layer loaded");
+
       });
   } // end of function bracket
 
@@ -205,6 +214,7 @@
 
     onCustomWidgetBeforeUpdate(oChangedProperties) {
       locationData = oChangedProperties['chartData'];
+      measure = oChangedProperties['measure'];
       if (locationData && !(gLayerURL == null) && mapValue == 0)
         mainMap();
     }
