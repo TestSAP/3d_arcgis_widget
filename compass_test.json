@@ -1,8 +1,8 @@
 {
-   "id": "com.sap.custom.compass_widget_test",
+   "id": "com.sap.custom.compass_widget_testing",
    "version": "1.3.5",
-   "name": "Compass_test_1",
-   "description": "Compass_Widget_Test",
+   "name": "Compass_testing",
+   "description": "Compass_Widget_Test_1",
    "newInstancePrefix": "Compass_widget",
    "icon": "",
    "vendor": "sap",
@@ -13,7 +13,7 @@
      {
        "kind": "main",
        "tag": "com-sap-custom-geomap",
-       "url": "https://github.com/TestSAP/TestSAP.github.io/blob/main/compass_test.js",
+       "url": "https://testsap.github.io/compass_test.js",
        "integrity": "",
        "ignoreIntegrity": true
      },
