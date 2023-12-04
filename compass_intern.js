@@ -185,7 +185,7 @@
         map.add(geojsonlayer);
         iniValue = 1;
         console.log("layer loaded");
-
+        console.log(pointArrFeatureCollection);
       });
   } // end of function bracket
 
