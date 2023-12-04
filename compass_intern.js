@@ -19,7 +19,7 @@
   var gBstartSize;
   var gBStopSize;
   var mapValue = 0;
-
+  var measure = '';
 
   template.innerHTML = `
     <head>
@@ -61,6 +61,8 @@
   function j2gConvert(jsonObject) {
     const geoJSONPointArr = jsonObject.map((row) => {
       console.log(row);
+      console.log(row.Order_Value);
+
       return {
         type: 'Feature',
         geometry: {
@@ -69,8 +71,8 @@
         },
         properties: {
           beaconId: row.beaconID,
-          aisle_name: row.beaconName,
-          order_value: row.Order_Value
+          aisle_name: row.beaconName
+          //order_value: row.Order_Value
         },
         id: parseFloat(row.beaconID),
       };
@@ -125,7 +127,7 @@
         // information on how to display the beacons(point format)
         renderer = {
           type: "heatmap",
-          // field: "units_sold",
+          field: measure,
           colorStops: [
             { color: "rgba(63, 40, 102, 0)", ratio: 0 },
             { color: "#472b77", ratio: 0.083 },
@@ -201,6 +203,7 @@
 
     onCustomWidgetBeforeUpdate(oChangedProperties) {
       locationData = oChangedProperties['chartData'];
+      measure = oChangedProperties['measure'];
       if (locationData && !(gLayerURL == null) && mapValue == 0)
         mainMap();
     }

@@ -63,8 +63,8 @@
               <td><input id="StopSize" name="StopSize" type="text"></td>
             </tr>
             <tr>
-              <td><label for="layerOption">Layer Option:</label></td>
-              <td><input id="layerOption" name="layerOption" type="text"></td>
+              <td><label for="measure">Measure:</label></td>
+              <td><input id="measure" name="measure" type="text"></td>
             </tr>
           </table>
         </fieldset>
@@ -169,11 +169,11 @@
             this.setValue("StopSize", value);    
         }
         
-        get layerOption() {
-            return this.getValue("layerOption");
+        get measure() {
+            return this.getValue("measure");
         }
-        set layerOption(value) {
-            this.setValue("layerOption", value);    
+        set measure(value) {
+            this.setValue("measure", value);    
         }
         
         getValue(id) {
@@ -193,7 +193,7 @@
               "BColor",
               "BOColor",
               "StartSize",
-              "layerOption"
+              "measure"
             ];
         }
 

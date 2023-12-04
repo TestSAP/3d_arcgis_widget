@@ -1,6 +1,6 @@
 {
    "id": "com.sap.custom.compass_widget_intern",
-   "version": "1.3.0",
+   "version": "1.3.1",
    "name": "Compass_intern_1",
    "description": "Compass_Widget_Test",
    "newInstancePrefix": "Compass_widget",
@@ -89,7 +89,11 @@
     "chartData":{
        "type":"Selection[]",
        "description":""
-    }
+    },
+    "measure":{
+      "type":"string",
+      "description":"select measure"
+   }
    },
    "methods": {
      "setServiceLevel": {
@@ -266,24 +270,24 @@
          ],
          "body":"this.StopSize = pStopSize;"
      },
-     "getlayerOption":{
+     "getmeasure":{
          "returnType":"string",
-         "description":"show beacon layer or not",
+         "description":"return measure selected",
          "parameters":[
            
          ],
-         "body":"return this.layerOption;"
+         "body":"return this.measure;"
      },
-     "setlayerOption":{
-         "description":"layerOption",
+     "setmeasure":{
+         "description":"measure",
          "parameters":[
            {
                "name":"player",
                "type":"string",
-               "description":"layerOption on or off"
+               "description":"set the measure"
            }
          ],
-         "body":"this.layerOption = player;"
+         "body":"this.measure = player;"
      }
 
 
