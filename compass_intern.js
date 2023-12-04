@@ -59,7 +59,8 @@
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
     const geoJSONPointArr = jsonObject.map((row) => {
-      console.log(row["[Account].[parentId].&[Order_Value]"]);
+      //console.log(row["@MeasureDimension"]);
+      console.log("here");
       console.log(row);
       return {
         type: 'Feature',
