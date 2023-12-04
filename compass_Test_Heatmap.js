@@ -98,11 +98,8 @@
           });
           map.add(featureLayer);
         });
-        const template = {
-          title: "aisle_name",
-          content: "Magnitude {order_value} hit {aisle_name} ."
-        };
-        const renderer = {
+        
+        renderer = {
           type: "heatmap",
           field: "order_value",
          // colorStops: [
