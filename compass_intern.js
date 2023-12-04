@@ -60,6 +60,7 @@
   function j2gConvert(jsonObject) {
     const geoJSONPointArr = jsonObject.map((row) => {
       //console.log(row["@MeasureDimension"]);
+
       console.log("here");
       console.log(row);
       return {
@@ -72,7 +73,7 @@
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
           units_sold: row.Units_Sold,
-          order_value: row.Order_Value_2
+          order_value: row.Order_Value_2, 
         },
         id: parseFloat(row.beaconID),
       };
@@ -102,8 +103,8 @@
           container: "viewDiv",
           scale: 500000,
           map: map,
-          zoom: gzoom,
-          center: gcenter,
+          zoom: 2,
+          center: [-138, 30],
         });
 
         /********************************
@@ -143,11 +144,10 @@
             { color: "#e0cf40", ratio: 0.913 },
             { color: "#7f7f7f", ratio: 1 }//grey
           ],
-          maxDensity: 0.01,
-          minDensity: 0
-          // radius: 10;
+          maxDensity: 75000,
+          minDensity: 0,
+          radius: 10
         };
-        console.log("s"+renderer.field);
       });
   }
 
