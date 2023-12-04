@@ -1,6 +1,6 @@
 {
    "id": "com.sap.custom.compass_widget_intern",
-   "version": "1.3.1",
+   "version": "1.3.4",
    "name": "Compass_intern_1",
    "description": "Compass_Widget_Test",
    "newInstancePrefix": "Compass_widget",
@@ -90,9 +90,9 @@
        "type":"Selection[]",
        "description":""
     },
-    "measure":{
-      "type":"string",
-      "description":"select measure"
+    "chartDimension":{
+      "type":"Selection[]",
+      "description":""
    }
    },
    "methods": {
@@ -194,6 +194,17 @@
        ],
        "body":"this.chartData = Data;"
      },
+     "setchartDimension":{
+      "description":"get dimension data from chart to script",
+      "parameters":[
+         {
+            "name":"Dimension",
+            "type":"Selection[]",
+            "description":"Dimension"
+         }
+      ],
+      "body":"this.setchartDimension = Dimension;"
+    },
      "getBeaconColor":{
        "returnType":"string",
        "description":"BeaconColor",
@@ -270,24 +281,24 @@
          ],
          "body":"this.StopSize = pStopSize;"
      },
-     "getmeasure":{
+     "getlayerOption":{
          "returnType":"string",
-         "description":"return measure selected",
+         "description":"show beacon layer or not",
          "parameters":[
            
          ],
-         "body":"return this.measure;"
+         "body":"return this.layerOption;"
      },
-     "setmeasure":{
-         "description":"measure",
+     "setlayerOption":{
+         "description":"layerOption",
          "parameters":[
            {
                "name":"player",
                "type":"string",
-               "description":"set the measure"
+               "description":"layerOption on or off"
            }
          ],
-         "body":"this.measure = player;"
+         "body":"this.layerOption = player;"
      }
 
 
