@@ -120,8 +120,8 @@
           maxDensity: 0.0001,
           minDensity: 0,
 
-          referenceScale: 36111
-         // radius: 10
+          //referenceScale: 36111
+         radius: 100
         };
        
         const view = new MapView({
