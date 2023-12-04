@@ -126,29 +126,7 @@
           referenceScale: 36111,
          // radius: 10
         };
-        const layer = new CSVLayer({
-          url: url,
-          title: "Magnitude 2.5+ earthquakes from the last week",
-          copyright: "USGS Earthquakes",
-          popupTemplate: template,
-          renderer: renderer,
-          labelsVisible: true,
-          labelingInfo: [
-            {
-              symbol: {
-                type: "text", // autocasts as new TextSymbol()
-                color: "white",
-                font: {
-                  family: "Noto Sans",
-                  size: 8
-                },
-                haloColor: "#472b77",
-                haloSize: 0.75
-              },
-              labelPlacement: "center-center"
-            }
-          ]
-        });
+       
         const view = new MapView({
           container: "viewDiv",
           //scale: 500000,
