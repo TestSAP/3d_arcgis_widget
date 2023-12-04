@@ -143,7 +143,7 @@
             { color: "#e0cf40", ratio: 0.913 },
             { color: "#7f7f7f", ratio: 1 }//grey
           ],
-          maxDensity: 75000,
+          maxDensity: 0.01,
           minDensity: 0
           // radius: 10;
         };
