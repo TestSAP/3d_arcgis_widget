@@ -19,7 +19,6 @@
   var gBstartSize;
   var gBStopSize;
   var mapValue = 0;
-  var d;
 
   template.innerHTML = `
     <head>
@@ -62,7 +61,7 @@
     const geoJSONPointArr = jsonObject.map((row) => {
       console.log(row);
       console.log(row["@MeasureDimension"]);
-      console.log(row["@MeasureDimension"]["Order_Value"]);
+      console.log(row["@MeasureDimension"]["[Account].[parentId].&[Order_Value]"]);
       d=row.Units_Sold;
       return {
         type: 'Feature',
@@ -128,7 +127,7 @@
         // information on how to display the beacons(point format)
         renderer = {
           type: "heatmap",
-          //field: "units_sold",
+          field: "units_sold",
           colorStops: [
             { color: "rgba(63, 40, 102, 0)", ratio: 0 },
             { color: "#472b77", ratio: 0.083 },
@@ -164,7 +163,6 @@
         pointArrFeatureCollection = {
           type: 'FeatureCollection',
           features: j2gConvert(locationData),
-          fields : d,
           bbox: [
             -179.9997, -61.6995, -3.5699999332428, 179.9142, 82.9995, 629.17
           ],

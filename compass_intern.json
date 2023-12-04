@@ -89,11 +89,7 @@
     "chartData":{
        "type":"Selection[]",
        "description":""
-    },
-    "chartDimension":{
-      "type":"Selection[]",
-      "description":""
-   }
+    }
    },
    "methods": {
      "setServiceLevel": {
@@ -194,17 +190,6 @@
        ],
        "body":"this.chartData = Data;"
      },
-     "setchartDimension":{
-      "description":"get dimension data from chart to script",
-      "parameters":[
-         {
-            "name":"Dimension",
-            "type":"Selection[]",
-            "description":"Dimension"
-         }
-      ],
-      "body":"this.setchartDimension = Dimension;"
-    },
      "getBeaconColor":{
        "returnType":"string",
        "description":"BeaconColor",
