@@ -1,5 +1,4 @@
 (function () {
-  console.log(start);
   let template = document.createElement("template");
   var gLayerURL;
   var gdegrees;
