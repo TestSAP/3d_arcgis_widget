@@ -1,0 +1,11 @@
+beaconID,Date,Sales Agent Last Name,Sales Agent First Name,Customer,Customer Segment,beaconName,Latitude,Longtitude,Customer Status,Product,Product Type,No Customer Meetings,Units Sold,mag,Geometry_coordinates,measure,Type,Geometry_Type,Category
+1,May-19,Klassen,Marc ,Retina Cyclist ,Wholesale,Anguilla,18.220554,-63.068615,Current Customer,R300 Bike,Racing,32,369,14856,"[18.220554,-63.068615]",1,Feature,Point,2
+2,May-19,Pan,Oliver ,Clark Cycles,Wholesale,Liberia,6.428055,-9.429499,Prior Customer,R300 Bike,Racing,14,194,5631,"[6.428055,-9.429499]",1,Feature,Point,2
+3,May-19,Pinto,Brain ,Trail Blazer NE,Wholesale,Palau,7.51498,134.58252,Current Customer,R300 Bike,Racing,29,107,2323,"[7.51498,134.58252]",1,Feature,Point,2
+4,May-19,Narula,Tommy,Speed Red,Wholesale,Hong Kong,22.396428,114.109497,Prospect,R300 Bike,Racing,14,106,4793,"[22.396428,114.109497]",1,Feature,Point,2
+5,May-19,Petrie,Maddy ,Send Cycle ,Wholesale,Solomon Islands,-9.64571,160.156194,Current Customer,R200 BIKe 4s,Racing,24,331,13140,"[-9.64571,160.156194]",1,Feature,Point,2
+6,May-19,Habib,Paul ,Formal Cyclist ,Wholesale,Uzbekistan,41.377491,64.585262,Current Customer,R200 BIKe 4s,Racing,28,296,9835,"[41.377491,64.585262]",1,Feature,Point,2
+7,May-19,Yun,Benny ,Rides Essentials ,Wholesale,Paraguay,-23.442503,-58.443832,Prior Customer,R200 BIKe 4s,Racing,19,287,7952,"[-23.442503,-58.443832]",1,Feature,Point,2
+8,May-19,Schilling,Michael ,Motoshop AB,Wholesale,Saint Lucia,13.909444,-60.978893,Current Customer,R200 BIKe 4s,Racing,28,369,7819,"[13.909444,-60.978893]",1,Feature,Point,2
+9,May-19,Lauzon,Isabella ,Cycle Score ,Direct,Iraq,33.223191,43.679291,Current Customer,R200 BIKe 4s,Racing,10,274,5191,"[33.223191,43.679291]",1,Feature,Point,2
+10,May-19,Tailor,Roy ,Cycle Genius,Retail,Grenada,12.262776,-61.604171,Prospect,R200 BIKe 4s,Racing,8,108,3713,"[12.262776,-61.604171]",1,Feature,Point,2
