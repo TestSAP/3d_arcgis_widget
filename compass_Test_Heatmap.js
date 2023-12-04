@@ -98,7 +98,11 @@
           });
           map.add(featureLayer);
         });
-        renderer = {
+        const template = {
+          title: "aisle_name",
+          content: "Magnitude {order_value} hit {aisle_name} ."
+        };
+        const renderer = {
           type: "heatmap",
           field: "order_value",
          // colorStops: [
@@ -122,9 +126,32 @@
           referenceScale: 36111,
          // radius: 10
         };
+        const layer = new CSVLayer({
+          url: url,
+          title: "Magnitude 2.5+ earthquakes from the last week",
+          copyright: "USGS Earthquakes",
+          popupTemplate: template,
+          renderer: renderer,
+          labelsVisible: true,
+          labelingInfo: [
+            {
+              symbol: {
+                type: "text", // autocasts as new TextSymbol()
+                color: "white",
+                font: {
+                  family: "Noto Sans",
+                  size: 8
+                },
+                haloColor: "#472b77",
+                haloSize: 0.75
+              },
+              labelPlacement: "center-center"
+            }
+          ]
+        });
         const view = new MapView({
           container: "viewDiv",
-          scale: 500000,
+          //scale: 500000,
           map: map,
           zoom: 2,
           center: [0, 0],
@@ -134,7 +161,7 @@
           new Legend({
             view: view
           }),
-          "top-right"
+          "bottom-left"
         );
         /********************************
          * Create a compass widget object.
@@ -296,3 +323,4 @@
 
   //END SHARED FUNCTION
 })();
+
