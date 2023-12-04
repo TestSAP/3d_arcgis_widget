@@ -83,8 +83,8 @@
   }
 
   function mainMap() {
-    require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer"],
-      (Map, MapView, Compass, FeatureLayer) => {
+    require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer", "esri/widgets/Legend"],
+      (Map, MapView, Compass, FeatureLayer, Legend) => {
 
         mapValue = 1;
 
@@ -116,8 +116,10 @@
            // { color: "#e0cf40", ratio: 0.913 },
            // { color: "#ffff00", ratio: 1 }//grey
          // ],
-          maxDensity: 0.01,
-          minDensity: 0
+          maxDensity: 0.0001,
+          minDensity: 0,
+
+          referenceScale: 36111,
          // radius: 10
         };
         const view = new MapView({
@@ -128,6 +130,12 @@
           center: [0, 0],
         });
 
+        view.ui.add(
+          new Legend({
+            view: view
+          }),
+          "top-right"
+        );
         /********************************
          * Create a compass widget object.
          *********************************/
