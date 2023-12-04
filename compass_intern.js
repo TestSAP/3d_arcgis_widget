@@ -60,7 +60,7 @@
   function j2gConvert(jsonObject) {
     const geoJSONPointArr = jsonObject.map((row) => {
       console.log(row["[Account].[parentId].&[Order_Value]"]);
-      d=row.Units_Sold;
+      console.log(row);
       return {
         type: 'Feature',
         geometry: {
