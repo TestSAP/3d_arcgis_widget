@@ -120,7 +120,7 @@
           maxDensity: 0.0001,
           minDensity: 0,
 
-          referenceScale: 36111,
+          referenceScale: 36111
          // radius: 10
         };
        
@@ -129,7 +129,7 @@
           //scale: 500000,
           map: map,
           zoom: 2,
-          center: [0, 0],
+          center: [0, 0]
         });
 
         view.ui.add(
