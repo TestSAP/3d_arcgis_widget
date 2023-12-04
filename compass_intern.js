@@ -81,14 +81,13 @@
 
     return geoJSONPointArr;
   }
-  function std(list) {
-    var list2;
-    for (var x in list) {
-      list2.push(parseFloat(x) * 10);
-    }
-    console.log(list2);
-    console("not here");
-    return list2;
+  function std(x) {
+
+    var sum = 75253;
+    y=parseFloat(x)/sum*10;
+    console.log(y);
+    console.log("not here");
+    return parseFloat(y);
   }
   function mainMap() {
     require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer"],
