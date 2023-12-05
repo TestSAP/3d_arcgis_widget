@@ -72,6 +72,7 @@
           aisle_name: row.beaconName,
           units_sold: row.Units_Sold,
           order_value: std(row.Order_Value_2),
+
         },
         id: parseFloat(row.beaconID),
       };
@@ -82,7 +83,7 @@
   function std(x){
 
     var sum =75253;
-    var y = parseFloat(x)/sum*10;
+    var y = parseFloat(x)/sum*10;//0-10 range
     
     return y;
 
@@ -185,7 +186,7 @@
         geojsonlayer = new GeoJSONLayer({
           url,
           popupTemplate: templates,
-          renderer: renderer
+          renderer: renderer,
         });
         map.add(geojsonlayer);
         iniValue = 1;
@@ -256,7 +257,7 @@
 
   } //end of class
 
-  let scriptSrc = "https://js.arcgis.com/4.18/"
+  let scriptSrc = "https://js.arcgis.com/4.27/"
   let onScriptLoaded = function () {
     customElements.define("com-sap-custom-geomap", Map);
   }
