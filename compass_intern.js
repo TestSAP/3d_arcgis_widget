@@ -61,6 +61,10 @@
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
     sum=jsonObject[jsonObject.length-1].sum;
+    console.log(jsonObject[jsonObject.length-1]['sum']);
+    console.log(jsonObject.length-1);
+    console.log("not here");
+    console.log(sum);
     const geoJSONPointArr = jsonObject.map((row) => {
 
       return {
