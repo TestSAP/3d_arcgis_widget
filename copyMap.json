@@ -1,7 +1,7 @@
 {
-   "id": "com.sap.custom.compass_widget_intern",
-   "version": "1.2.0",
-   "name": "Compass_intern_1",
+   "id": "com.sap.custom.compass_widget_copy",
+   "version": "1.3.1",
+   "name": "Compass_copy_1",
    "description": "Compass_Widget_Test",
    "newInstancePrefix": "Compass_widget",
    "icon": "",
