@@ -71,7 +71,7 @@
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
           units_sold: row.Units_Sold,
-          order_value: parseFloat(row.Order_Value_2),
+          order_value: std(row.Order_Value_2),
         },
         id: parseFloat(row.beaconID),
       };
@@ -79,7 +79,14 @@
 
     return geoJSONPointArr;
   }
+  function std(x){
 
+    var sum =75253;
+    var y = parseFloat(x)/sum*10;
+    
+    return y;
+
+  }
   function mainMap() {
     require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer"],
       (Map, MapView, Compass, FeatureLayer) => {
@@ -129,22 +136,22 @@
           field: "order_value",
           colorStops: [
             { color: "rgba(63, 40, 102, 0)", ratio: 0 },
-            { color: "#472b77", ratio: 0.03 },
-            { color: "#ffff00", ratio: 0.04 },//yellow
-            { color: "#563098", ratio: 0.07 },
-            { color: "#f7072f", ratio: 0.1 },//red
-            { color: "#6735be", ratio: 0.13 },
-            { color: "#ffffff", ratio: 0.15 },//white
-            { color: "#08f60e", ratio: 0.17 },//green
-            { color: "#853fff", ratio: 0.18 },
-            { color: "#000000", ratio: 0.19 },//dark
+            { color: "#472b77", ratio: 0.083 },
+            { color: "#4e2d87", ratio: 0.166 },
+            { color: "#563098", ratio: 0.249 },
+            { color: "#5d32a8", ratio: 0.332 },
+            { color: "#6735be", ratio: 0.415 },
+            { color: "#7139d4", ratio: 0.498 },
+            { color: "#7b3ce9", ratio: 0.581 },
+            { color: "#853fff", ratio: 0.664 },
+            { color: "#a46fbf", ratio: 0.747 },
             { color: "#c29f80", ratio: 0.83 },
             { color: "#e0cf40", ratio: 0.913 },
-            { color: "#7f7f7f", ratio: 1 }//grey
+            { color: "#ffff00", ratio: 1 }
           ],
           maxDensity: 0.1,
           minDensity: 0
-          // radius: 10
+          //radius: 10
         };
       });
   }
