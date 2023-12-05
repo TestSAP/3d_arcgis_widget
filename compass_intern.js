@@ -50,21 +50,18 @@
 
   // Convert string coordinate from geojson file to array of cooor
   function removeString(stringCoor) {
-   // if(stringCoor.includes('Geometry_coordinates')){
+   if(stringCoor.includes('Geometry_coordinates')){
     var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
     var Lat = parseFloat(LatLng[0]);
     var Lng = parseFloat(LatLng[1]);
     return [Lng, Lat]
-   // }
+   }
   }
   var sum=0;
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
     sum=jsonObject[jsonObject.length-1].sum;
-    console.log(jsonObject[jsonObject.length-1]['sum']);
-    console.log(jsonObject.length-1);
-    console.log("not here");
-    console.log(sum);
+
     const geoJSONPointArr = jsonObject.map((row) => {
 
       return {
