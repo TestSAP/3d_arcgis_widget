@@ -103,7 +103,7 @@
           const featureLayer = new FeatureLayer({
             url: i
           });
-          map.add(featureLayer);
+         // map.add(featureLayer);
         });
 
         const view = new MapView({
