@@ -193,10 +193,11 @@
           popupTemplate: templates,
           renderer: renderer,
         });
-        map.add(geojsonlayer);
-        iniValue = 1;
-        console.log("layer loaded");
-        console.log(pointArrFeatureCollection);
+       setTimeout(() => {
+          map.add(geojsonlayer);
+          iniValue = 1;
+          console.log("layer loaded");
+        }, 1000);
       });
   } // end of function bracket
 
