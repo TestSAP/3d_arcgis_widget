@@ -13,7 +13,7 @@
      {
        "kind": "main",
        "tag": "com-sap-custom-geomap",
-       "url": "https://github.com/TestSAP/TestSAP.github.io/blob/main/copyMap.js",
+       "url": "https://testsap.github.io/copyMap.js",
        "integrity": "",
        "ignoreIntegrity": true
      },
