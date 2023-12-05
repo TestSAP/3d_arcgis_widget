@@ -88,7 +88,6 @@
     return geoJSONPointArr;
   }
   function std(x) {
-    console.log(sum);
     var y = parseFloat(x) / sum * 10;//0-10 range
 
     return y;
@@ -99,11 +98,6 @@
       (Map, MapView, Compass, FeatureLayer) => {
 
         mapValue = 1;
-
-        map = new Map({
-          basemap: "streets-vector",
-          layers: [geojsonlayer]
-        });
 
         gLayerURL.forEach(i => {
           const featureLayer = new FeatureLayer({
@@ -162,6 +156,9 @@
           //radius: 10
         };
       });
+      
+
+
   }
 
   // function inside class to create geojson beacons
@@ -171,7 +168,7 @@
         'esri/layers/GeoJSONLayer',
       ],
       (GeoJSONLayer) => {
-        console.log(locationData)
+
         pointArrFeatureCollection = {};
         pointArrFeatureCollection = {
           type: 'FeatureCollection',
@@ -195,9 +192,13 @@
           popupTemplate: templates,
           renderer: renderer,
         });
+        map = new Map({
+          basemap: "streets-vector",
+          layers: [geojsonlayer]
+        });
         iniValue = 1;
         console.log("layer loaded");
-        console.log(pointArrFeatureCollection);
+
       });
   } // end of function bracket
 
