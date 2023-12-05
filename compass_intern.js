@@ -50,11 +50,15 @@
 
   // Convert string coordinate from geojson file to array of cooor
   function removeString(stringCoor) {
-   if(stringCoor.includes('Geometry_coordinates')){
+   try
+   {
     var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
     var Lat = parseFloat(LatLng[0]);
     var Lng = parseFloat(LatLng[1]);
     return [Lng, Lat]
+   }
+   catch(e){
+    console.log("not a coordinate");
    }
   }
   var sum=0;
