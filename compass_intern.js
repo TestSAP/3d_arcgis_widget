@@ -71,7 +71,7 @@
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
           units_sold: row.Units_Sold,
-          order_value: row.Order_Value_2,
+          order_value: parseFloat(row.Order_Value_2),
         },
         id: parseFloat(row.beaconID),
       };
