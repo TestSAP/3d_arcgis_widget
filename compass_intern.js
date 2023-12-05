@@ -50,21 +50,21 @@
 
   // Convert string coordinate from geojson file to array of cooor
   function removeString(stringCoor) {
-   try
-   {
-    var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
-    var Lat = parseFloat(LatLng[0]);
-    var Lng = parseFloat(LatLng[1]);
-    return [Lng, Lat]
+    try
+    {
+     var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
+     var Lat = parseFloat(LatLng[0]);
+     var Lng = parseFloat(LatLng[1]);
+     return [Lng, Lat]
+    }
+    catch(e){
+     console.log("not a coordinate");
+    }
    }
-   catch(e){
-    console.log("not a coordinate");
-   }
-  }
-  var sum=0;
+  var sum = 0;
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
-    sum=jsonObject[jsonObject.length-1].sum;
+    sum = jsonObject[jsonObject.length - 1].sum;
 
     const geoJSONPointArr = jsonObject.map((row) => {
 
@@ -87,9 +87,10 @@
 
     return geoJSONPointArr;
   }
-  function std(x){
-    var y = parseFloat(x)/sum*10;//0-10 range
-    
+  function std(x) {
+    console.log(sum);
+    var y = parseFloat(x) / sum * 10;//0-10 range
+
     return y;
 
   }
@@ -100,7 +101,8 @@
         mapValue = 1;
 
         map = new Map({
-          basemap: "streets-vector"
+          basemap: "streets-vector",
+          layers: [geojsonlayer]
         });
 
         gLayerURL.forEach(i => {
@@ -193,11 +195,9 @@
           popupTemplate: templates,
           renderer: renderer,
         });
-       setTimeout(() => {
-          map.add(geojsonlayer);
-          iniValue = 1;
-          console.log("layer loaded");
-        }, 1000);
+        iniValue = 1;
+        console.log("layer loaded");
+        console.log(pointArrFeatureCollection);
       });
   } // end of function bracket
 
