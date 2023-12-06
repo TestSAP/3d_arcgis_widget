@@ -159,6 +159,30 @@
           minDensity: 0
           //radius: 10
         };
+        const layer = new CSVLayer({
+          url: url,
+          popupTemplate: template,
+          renderer: renderer,
+          labelsVisible: true,
+          labelingInfo: [
+            {
+              symbol: {
+                type: "text", // autocasts as new TextSymbol()
+                color: "white",
+                font: {
+                  family: "Noto Sans",
+                  size: 8
+                },
+                haloColor: "#472b77",
+                haloSize: 0.75
+              },
+              labelPlacement: "center-center",
+              labelExpressionInfo: {
+                expression: "Text($feature.mag, '#.0')"
+              },
+            }
+          ]
+        });
       });
   }
 
