@@ -143,7 +143,7 @@
 
         // Add the Compass widget to the top left corner of the view
         view.ui.add(compassWidget, "top-left");
-        view.constraints = {rotationEnabled: false};
+        view.constraints = {rotationEnabled: true};
         view.rotation = gdegrees;
 
         // template to display additional details for the beacon when selected
