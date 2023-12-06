@@ -50,24 +50,17 @@
 
   // Convert string coordinate from geojson file to array of cooor
   function removeString(stringCoor) {
-    try
-    {
-     var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
-     var Lat = parseFloat(LatLng[0]);
-     var Lng = parseFloat(LatLng[1]);
-     return [Lng, Lat]
-    }
-    catch(e){
-     console.log("not a coordinate");
-    }
-   }
-  var sum = 0;
+    var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
+    var Lat = parseFloat(LatLng[0]);
+    var Lng = parseFloat(LatLng[1]);
+    return [Lng, Lat]
+  }
+
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
-    sum = jsonObject[jsonObject.length - 1].sum;
-
     const geoJSONPointArr = jsonObject.map((row) => {
-
+      //console.log(row["@MeasureDimension"]);
+      //console.log(row.Order_Value_2);
       return {
         type: 'Feature',
         geometry: {
@@ -79,7 +72,6 @@
           aisle_name: row.beaconName,
           units_sold: row.Units_Sold,
           order_value: std(row.Order_Value_2),
-
         },
         id: parseFloat(row.beaconID),
       };
@@ -87,9 +79,11 @@
 
     return geoJSONPointArr;
   }
-  function std(x) {
-    var y = parseFloat(x) / sum * 10;//0-10 range
+  function std(x){
 
+    var sum =75253;
+    var y = parseFloat(x)/sum*10;
+    
     return y;
 
   }
@@ -98,6 +92,10 @@
       (Map, MapView, Compass, FeatureLayer) => {
 
         mapValue = 1;
+
+        map = new Map({
+          basemap: "streets-vector"
+        });
 
         gLayerURL.forEach(i => {
           const featureLayer = new FeatureLayer({
@@ -156,9 +154,6 @@
           //radius: 10
         };
       });
-      
-
-
   }
 
   // function inside class to create geojson beacons
@@ -168,7 +163,7 @@
         'esri/layers/GeoJSONLayer',
       ],
       (GeoJSONLayer) => {
-
+        console.log(locationData)
         pointArrFeatureCollection = {};
         pointArrFeatureCollection = {
           type: 'FeatureCollection',
@@ -190,15 +185,12 @@
         geojsonlayer = new GeoJSONLayer({
           url,
           popupTemplate: templates,
-          renderer: renderer,
+          renderer: renderer
         });
-        map = new Map({
-          basemap: "streets-vector",
-          layers: [geojsonlayer]
-        });
+        map.add(geojsonlayer);
         iniValue = 1;
         console.log("layer loaded");
-
+        console.log(pointArrFeatureCollection);
       });
   } // end of function bracket
 
@@ -264,7 +256,7 @@
 
   } //end of class
 
-  let scriptSrc = "https://js.arcgis.com/4.27/"
+  let scriptSrc = "https://js.arcgis.com/4.18/"
   let onScriptLoaded = function () {
     customElements.define("com-sap-custom-geomap", Map);
   }
