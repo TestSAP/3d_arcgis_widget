@@ -72,7 +72,7 @@
         properties: {
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
-          units_sold: row.Units_Sold,
+        //  units_sold: row.Units_Sold,
         //  order_value: row.Order_Value_2, 
         },
         id: parseFloat(row.beaconID),
@@ -126,7 +126,7 @@
        
         const view = new MapView({
           container: "viewDiv",
-          //scale: 500000,
+          scale: 500000,
           map: map,
           zoom: gzoom,
           center: gcenter,
@@ -151,7 +151,30 @@
         };
 
         // information on how to display the beacons(point format)
-
+        renderer = {
+          type: 'simple',
+          field: 'name',
+          symbol: {
+            type: 'simple-marker',
+            color: gBeaconColor,
+            outline: {
+              color: gBOColor,
+            },
+          },
+          visualVariables: [{
+            type: 'size',
+            field: 'name',
+            stops: [{
+                value: 4,
+                size: gBstartSize,
+              },
+              {
+                value: 8,
+                size: gBStopSize,
+              },
+            ],
+          }, ],
+        };
       });
   }
 
@@ -162,7 +185,7 @@
         'esri/layers/GeoJSONLayer',
       ],
       (GeoJSONLayer) => {
-        console.log(locationData)
+      //  console.log(locationData)
         pointArrFeatureCollection = {};
         pointArrFeatureCollection = {
           type: 'FeatureCollection',
@@ -186,10 +209,11 @@
           popupTemplate: templates,
           renderer: renderer
         });
-        map.add(geojsonlayer);
-        iniValue = 1;
-        console.log("layer loaded");
-        console.log(pointArrFeatureCollection);
+        if (glayerOption == "on") {
+          // add the beacons to the webscene
+          map.add(geojsonlayer);
+          iniValue = 1;
+        }
       });
   } // end of function bracket
 
@@ -292,3 +316,4 @@
 
   //END SHARED FUNCTION
 })();
+
