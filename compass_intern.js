@@ -50,11 +50,18 @@
 
   // Convert string coordinate from geojson file to array of cooor
   function removeString(stringCoor) {
-    var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
-    var Lat = parseFloat(LatLng[0]);
-    var Lng = parseFloat(LatLng[1]);
-    return [Lng, Lat]
-  }
+    try
+    {
+     var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
+     var Lat = parseFloat(LatLng[0]);
+     var Lng = parseFloat(LatLng[1]);
+     return [Lng, Lat]
+    }
+    catch(e){
+     console.log("not a coordinate");
+    }
+   }
+  var sum = 0;
 
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
@@ -81,10 +88,9 @@
   }
   function std(x){
 
-    var sum =75253;
     var y = parseFloat(x)/sum*10;
-    
-    return y;
+    console.log(y);
+    return parseFloat(y);
 
   }
   function mainMap() {
