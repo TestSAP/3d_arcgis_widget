@@ -19,7 +19,7 @@
   var gBstartSize;
   var gBStopSize;
   var mapValue = 0;
-
+  var sum=0;
   template.innerHTML = `
     <head>
     <meta charset="utf-8" />
@@ -61,7 +61,6 @@
      console.log("not a coordinate");
     }
    }
-  var sum = 0;
 
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
@@ -89,7 +88,8 @@
   function std(x){
 
     var y = parseFloat(x)/sum*10;
-    console.log(y);
+    console.log(sum);
+    console.log(parseFloat(y));
     return parseFloat(y);
 
   }
