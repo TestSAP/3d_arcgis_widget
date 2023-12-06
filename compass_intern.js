@@ -19,7 +19,8 @@
   var gBstartSize;
   var gBStopSize;
   var mapValue = 0;
-  var sum=0;
+  var sum = 0;
+
   template.innerHTML = `
     <head>
     <meta charset="utf-8" />
@@ -65,8 +66,7 @@
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
     const geoJSONPointArr = jsonObject.map((row) => {
-      //console.log(row["@MeasureDimension"]);
-      //console.log(row.Order_Value_2);
+      sum = jsonObject[jsonObject.length - 1].sum;
       return {
         type: 'Feature',
         geometry: {
