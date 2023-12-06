@@ -1,6 +1,6 @@
 {
    "id": "com.sap.custom.compass_widget_intern",
-   "version": "1.3.4",
+   "version": "1.3.5",
    "name": "Compass_intern_1",
    "description": "Compass_Widget_Test",
    "newInstancePrefix": "Compass_widget",
@@ -76,9 +76,9 @@
        "description":"show legend or not",
        "default":""
     },
-    "layerOption":{
+    "chartMeasure":{
        "type":"string",
-       "description":"show layer or not",
+       "description":"get Measure",
        "default":""
     },
     "StopSize":{
@@ -266,24 +266,24 @@
          ],
          "body":"this.StopSize = pStopSize;"
      },
-     "getlayerOption":{
+     "getchartMeasure":{
          "returnType":"string",
-         "description":"show beacon layer or not",
+         "description":"get measure",
          "parameters":[
            
          ],
          "body":"return this.layerOption;"
      },
-     "setlayerOption":{
-         "description":"layerOption",
+     "setchartMeasure":{
+         "description":"chartMeasure",
          "parameters":[
            {
                "name":"player",
                "type":"string",
-               "description":"layerOption on or off"
+               "description":"set measure"
            }
          ],
-         "body":"this.layerOption = player;"
+         "body":"this.chartMeasure = player;"
      }
 
 
