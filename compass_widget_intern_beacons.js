@@ -1,4 +1,3 @@
-
 (function () {
     let template = document.createElement("template");
     var gLayerURL;
@@ -68,14 +67,14 @@
     function j2gConvert(jsonObject) {
       const geoJSONPointArr = jsonObject.map((row) => {
         sum = jsonObject[jsonObject.length - 1].sum;
-        let geometryType = row.Geometry_Type;
+        let geometryType = "Point";
         if (!['Point', 'MultiPoint', 'LineString', 'MultiLineString', 'Polygon', 'MultiPolygon'].includes(geometryType)) {
           console.log(`Invalid geometryType: ${geometryType} for beaconId: ${row.beaconID}`);
           geometryType = 'Point'; // set a default value or suitable fallback
         }
 
         return {
-          type: 'Feature',
+          type: "Point",
           geometry: {
             type: row.Geometry_Type,
             coordinates: removeString(row.Geometry_coordinates)
