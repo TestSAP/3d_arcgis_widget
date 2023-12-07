@@ -1,3 +1,4 @@
+
 (function () {
     let template = document.createElement("template");
     var gLayerURL;
@@ -67,6 +68,12 @@
     function j2gConvert(jsonObject) {
       const geoJSONPointArr = jsonObject.map((row) => {
         sum = jsonObject[jsonObject.length - 1].sum;
+        let geometryType = row.Geometry_Type;
+        if (!['Point', 'MultiPoint', 'LineString', 'MultiLineString', 'Polygon', 'MultiPolygon'].includes(geometryType)) {
+          console.log(`Invalid geometryType: ${geometryType} for beaconId: ${row.beaconID}`);
+          geometryType = 'Point'; // set a default value or suitable fallback
+        }
+
         return {
           type: 'Feature',
           geometry: {
@@ -131,7 +138,7 @@
           view.rotation = gdegrees;
   
           // template to display additional details for the beacon when selected
-        /* templates = {
+          /*templates = {
             title: 'Beacon Detail',
             content: 'Beacon ID:{beaconId} \n Aisle assigned to:{aisle_name}',
           };*/
@@ -186,9 +193,6 @@
                   haloSize: 0.75
                 },
                 labelPlacement: "center-center",
-                labelExpressionInfo: {
-                  expression: "Text($feature.mag, '#.0')"
-                },
               }
             ]
           });
