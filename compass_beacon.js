@@ -115,8 +115,8 @@
           container: "viewDiv",
           scale: 500000,
           map: map,
-          zoom: 2,
-          center: [-138, 30],
+          zoom: gzoom,
+          center: gcenter,
         });
 
         /********************************
