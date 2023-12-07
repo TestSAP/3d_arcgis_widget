@@ -139,7 +139,7 @@
           type: "heatmap",
           field: "measure",
           colorStops: [
-            { color: generateColorBasedOnRatio(0), ratio: 0 },
+            { color: "rgba(63, 40, 102, 0)", ratio: 0 },
             { color: generateColorBasedOnRatio(0.083), ratio: 0.083 },
             { color: generateColorBasedOnRatio(0.166 ), ratio: 0.166 },
             { color: generateColorBasedOnRatio(0.249), ratio: 0.249 },
