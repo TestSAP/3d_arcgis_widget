@@ -1,0 +1,52 @@
+{
+  "eula": "",
+  "vendor": "SAP",
+  "license": "",
+  "id": "com.sap.sac.sample.echarts.calendar_5",
+  "version": "1.3.5",
+  "supportsMobile": true,
+  "name": "Calendar",
+  "newInstancePrefix": "Calendars",
+  "description": "A sample custom widget wrapped EChart Calendar",
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-sap-sample-echarts-calendar",
+      "url": "https://TestSAP.github.io/calendar.js",
+      "integrity": "",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "width": {
+      "type": "integer",
+      "default": 288
+    },
+    "height": {
+      "type": "integer",
+      "default": 320
+    }
+  },
+  "methods": {},
+
+  "events": {
+    "dateSelected":{}
+    },
+
+  "dataBindings":{
+    "myDataBinding":{
+      "feeds":[
+        {
+          "id":"dimensions",
+          "description":"Dimensions",
+          "type":"dimension"
+        },
+        {
+          "id":"measures",
+          "description":"Measures",
+          "type":"mainStructureMember"
+        }
+      ]
+    }
+  }
+}

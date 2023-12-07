@@ -1,4 +1,4 @@
-
+try{
 var getScriptPromisify = (src) => {
   return new Promise(resolve => {
     $.getScript(src, resolve)
@@ -37,3 +37,7 @@ var getScriptPromisify = (src) => {
 
   customElements.define("com-sap-sample-datepicker", DatePicker);
 })();
+}catch(e){
+  console.log(e);
+  console.log("error found");
+}
