@@ -134,7 +134,7 @@
         // template to display additional details for the beacon when selected
         templates = {
           title: 'Beacon Detail',
-          content: 'Beacon ID:{beaconId} \n Aisle assigned to:{aisle_name}',
+          content: 'Beacon Name \n Aisle assigned to:{aisle_name}',
         };
 
         // information on how to display the beacons(point format)
