@@ -1,23 +1,23 @@
 (function () {
-    let version = "3.0.0";
+    let version = "2.5.1";
     let tmpl = document.createElement('template');
-    tmpl.innerHTML = `<link rel="stylesheet" type="text/css" href="light.css"/>`;
+    tmpl.innerHTML = `<link rel="stylesheet" type="text/css" href="https://widgets.nkappler.de/datepicker/releases/${version}/light.css"/>`;
 
     class DatePicker extends HTMLElement {
         constructor() {
             super();
             this.init();
-            //this.checkForUpdates();
+            this.checkForUpdates();
         }
 
-        /*async checkForUpdates() {
+        async checkForUpdates() {
             try {
-                const contribution = await (await fetch("datepicker.json")).json();
+                const contribution = await (await fetch("https://widgets.nkappler.de/datepicker/releases/latest/datepicker.json")).json();
                 if (contribution.version > version) {
                     console.log("A newer version of the Datepicker Custom Widget is available. Please contact your system administrator");
                 }
             } catch (error) { }
-        }*/
+        }
 
         init(skipChildrenCheck) {
             if (skipChildrenCheck !== true && this.children.length === 2) return; //constructor called during drag+drop
@@ -58,6 +58,10 @@
             this.DP.setValue("");
         }
 
+        getDateVal() {
+            return this.DP.getDateValue() || undefined;
+        }
+
         set dateVal(value) {
             if (value == undefined || !this.DP) return;
             if (typeof (value) === "string") value = new Date(value);
@@ -77,9 +81,7 @@
         }
 
         set darktheme(value) {
-            this.querySelector("link").setAttribute("href", "https://widgets.nkappler.de/datepicker/releases/2.4.0/" +
-                (value ? "dark.css" : "light.css")
-            );
+            this.querySelector("link").setAttribute("href", `https://widgets.nkappler.de/datepicker/releases/${version}/${value ? "dark" : "light"}.css`);
         }
 
         set enablerange(value) {

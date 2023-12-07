@@ -1,5 +1,5 @@
 (function () {
-    let version = "3.0.0";
+    let version = "2.5.1";
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
         <style>
@@ -100,6 +100,7 @@
             padding: 5px;
             width: 100%;
         }
+
         </style>
         <p>Date Format</p>
         <div class="select">
@@ -123,7 +124,7 @@
     class DatePickerAps extends HTMLElement {
         constructor() {
             super();
-            //this._checkForUpdates();
+            this._checkForUpdates();
             this.appendChild(tmpl.content.cloneNode(true));
 
             if (sap.ui.getCore().byId("dateMin")) {
@@ -153,9 +154,9 @@
                 this.querySelector("#" + id).addEventListener("change", this._submit.bind(this)));
         }
 
-        /*async _checkForUpdates() {
+        async _checkForUpdates() {
             try {
-                const contribution = await (await fetch("https://github.com/TestSAP/Date-Picker/blob/main/datepicker.json")).json();
+                const contribution = await (await fetch("http://widgets.nkappler.de/datepicker/releases/latest/datepicker.json")).json();
                 if (contribution.version > version) {
                     const updateInfo = document.createElement("div");
                     updateInfo.innerHTML = `
@@ -167,7 +168,7 @@
                     this.prepend(updateInfo);
                 }
             } catch (error) { }
-        }*/
+        }
 
         _submit(e) {
             e.preventDefault();
