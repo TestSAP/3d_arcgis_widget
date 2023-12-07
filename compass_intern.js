@@ -52,23 +52,21 @@
 
   // Convert string coordinate from geojson file to array of cooor
   function removeString(stringCoor) {
-    try
-    {
-     var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
-     var Lat = parseFloat(LatLng[0]);
-     var Lng = parseFloat(LatLng[1]);
-     return [Lng, Lat]
+    try {
+      var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
+      var Lat = parseFloat(LatLng[0]);
+      var Lng = parseFloat(LatLng[1]);
+      return [Lng, Lat]
     }
-    catch(e){
-     console.log("not a coordinate");
+    catch (e) {
+      console.log("not a coordinate");
     }
-   }
+  }
 
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
     const geoJSONPointArr = jsonObject.map((row) => {
       sum = jsonObject[jsonObject.length - 1].sum;
-      console.log(row[gchartMeasure]);
       return {
         type: 'Feature',
         geometry: {
@@ -86,10 +84,9 @@
 
     return geoJSONPointArr;
   }
-  function std(x){
+  function std(x) {
 
-    var y = parseFloat(x)/sum*10;
-    console.log(sum);
+    var y = parseFloat(x) / sum * 10;
     console.log(parseFloat(y));
     return parseFloat(y);
 
@@ -115,8 +112,8 @@
           container: "viewDiv",
           scale: 500000,
           map: map,
-          zoom: 2,
-          center: [-138, 30],
+          zoom: gzoom,
+          center: gcenter,
         });
 
         /********************************
@@ -142,25 +139,50 @@
           type: "heatmap",
           field: "measure",
           colorStops: [
-            { color: "rgba(63, 40, 102, 0)", ratio: 0 },
-            { color: "#472b77", ratio: 0.083 },
-            { color: "#4e2d87", ratio: 0.166 },
-            { color: "#563098", ratio: 0.249 },
-            { color: "#5d32a8", ratio: 0.332 },
-            { color: "#6735be", ratio: 0.415 },
-            { color: "#7139d4", ratio: 0.498 },
-            { color: "#7b3ce9", ratio: 0.581 },
-            { color: "#853fff", ratio: 0.664 },
-            { color: "#a46fbf", ratio: 0.747 },
-            { color: "#c29f80", ratio: 0.83 },
-            { color: "#e0cf40", ratio: 0.913 },
-            { color: "#ffff00", ratio: 1 }
+            { color: generateColorBasedOnRatio(0), ratio: 0 },
+            { color: generateColorBasedOnRatio(0.083), ratio: 0.083 },
+            { color: generateColorBasedOnRatio(0.166 ), ratio: 0.166 },
+            { color: generateColorBasedOnRatio(0.249), ratio: 0.249 },
+            { color: generateColorBasedOnRatio(0.332), ratio: 0.332 },
+            { color: generateColorBasedOnRatio(0.415), ratio: 0.415 },
+            { color: generateColorBasedOnRatio(0.498), ratio: 0.498 },
+            { color: generateColorBasedOnRatio(0.581), ratio: 0.581 },
+            { color: generateColorBasedOnRatio(0.664), ratio: 0.664 },
+            { color: generateColorBasedOnRatio(0.747), ratio: 0.747 },
+            { color: generateColorBasedOnRatio(0.83), ratio: 0.83 },
+            { color: generateColorBasedOnRatio(0.913), ratio: 0.913 },
+            { color: generateColorBasedOnRatio(1), ratio: 1 }
           ],
           maxDensity: 0.1,
           minDensity: 0
           //radius: 10
         };
       });
+  }
+  function generateColorBasedOnRatio(ratio) {
+    // Ensure ratio is within valid range (0 to 1)
+    ratio = Math.min(1, Math.max(0, ratio));
+
+    // Base color: gcolor
+    const baseColor = gBeaconColor;
+
+    // Calculate variations
+    const variations = baseColor.map(channel => Math.round(channel * (1 - ratio)));
+
+    // Convert RGB values to hex
+    const hexColor = rgbToHex(variations[0], variations[1], variations[2]);
+    console.log(hexColor);
+    return hexColor;
+  }
+
+  // Function to convert RGB to hex
+  function rgbToHex(r, g, b) {
+    const toHex = channel => {
+      const hex = channel.toString(16);
+      return hex.length === 1 ? '0' + hex : hex;
+    };
+
+    return '#' + toHex(r) + toHex(g) + toHex(b);
   }
 
   // function inside class to create geojson beacons
@@ -222,8 +244,8 @@
     }
 
     onCustomWidgetAfterUpdate(oChangedProperties) {
-      if('chartMeasure' in oChangedProperties){
-        gchartMeasure= oChangedProperties['chartMeasure'];
+      if ('chartMeasure' in oChangedProperties) {
+        gchartMeasure = oChangedProperties['chartMeasure'];
       }
       if ('layerURL' in oChangedProperties) {
         gLayerURL = oChangedProperties['layerURL'].split(',').map(item => item.trim());
