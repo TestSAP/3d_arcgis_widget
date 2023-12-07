@@ -164,7 +164,7 @@
     ratio = Math.min(1, Math.max(0, ratio));
 
     // Base color: gcolor
-    const baseColor = gBeaconColor;
+    const baseColor = JSON.parse(gBeaconColor);
 
     // Calculate variations
     const variations = baseColor.map(channel => Math.round(channel * (1 - ratio)));
