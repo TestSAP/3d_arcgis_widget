@@ -272,7 +272,7 @@
          "parameters":[
            
          ],
-         "body":"return this.layerOption;"
+         "body":"return this.chartMeasure;"
      },
      "setchartMeasure":{
          "description":"chartMeasure",
