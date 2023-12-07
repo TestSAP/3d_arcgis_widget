@@ -1,7 +1,7 @@
 {
-   "id": "com.sap.custom.compass_widget_intern_beacon",
-   "version": "1.3.0",
-   "name": "Compass_intern_beacon",
+   "id": "com.sap.custom.compass_widget_intern_beaconsID",
+   "version": "1.3.3",
+   "name": "Compass_intern_beaconsID",
    "description": "Compass_Widget_Test",
    "newInstancePrefix": "Compass_widget",
    "icon": "",
