@@ -86,12 +86,12 @@
 
     return geoJSONPointArr;
   }
-  function standard(orderValue){
+  function std(x){ // standardize the order_value
 
-    var total = parseFloat(orderValue)/sum*10;
+    var y = parseFloat(x)/sum*10; // average of the order_value
     console.log(sum);
-    console.log(parseFloat(total));
-    return parseFloat(total);
+    console.log(parseFloat(y));
+    return parseFloat(y);
 
   }
   function mainMap() {
