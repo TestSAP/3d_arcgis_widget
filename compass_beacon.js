@@ -75,10 +75,11 @@
           type: row.Geometry_Type,
           coordinates: removeString(row.Geometry_coordinates)
         },
-        properties: {
+          properties: {
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
           measure: std(row[gchartMeasure]),
+          rowCount: row.length
         },
         id: parseFloat(row.beaconID),
       };
@@ -86,9 +87,10 @@
 
     return geoJSONPointArr;
   }
-  function std(x){ // standardize the order_value
+  function std(x){
 
-    var y = parseFloat(x)/sum*10; // average of the order_value
+    console.log(rowCount);
+    var y = parseFloat(x)/sum*rowCount;
     console.log(sum);
     console.log(parseFloat(y));
     return parseFloat(y);
