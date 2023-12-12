@@ -1,0 +1,296 @@
+{
+   "id": "com.sap.custom.compass_beacon",
+   "version": "1.3.7",
+   "name": "Compass_beacon",
+   "description": "Compass_Widget_Test",
+   "newInstancePrefix": "Compass_widget",
+   "icon": "",
+   "vendor": "sap",
+   "eula": "",
+   "license": "",
+   "imports": [ "input-controls" ],
+   "webcomponents": [
+     {
+       "kind": "main",
+       "tag": "com-sap-custom-geomap",
+       "url": "https://testsap.github.io/compass_beacon.js",
+       "integrity": "",
+       "ignoreIntegrity": true
+     },
+     {
+       "kind": "builder",
+       "tag": "com-sap-custom-geomap-builder",
+       "url": "https://testsap.github.io/compass_widget_builder.js",
+       "integrity": "",
+       "ignoreIntegrity": true
+     }
+   ],
+   "properties": {
+     "metadata": {
+       "type": "string",
+       "description": "For internal use",
+       "default": ""
+     },
+     "servicelevel": {
+       "type": "integer",
+       "description": "Electrical NODISCONT Service Level",
+       "default": 0
+     },
+     "layerURL":{
+       "type":"string",
+       "description":"Layer URL",
+       "default":"https://services2.arcgis.com/bHw5SIVxT3UESSB8/ArcGIS/rest/services/Ground_Floor/FeatureServer/4"
+     },
+     "degrees":{
+       "type":"integer",
+       "description":"degrees",
+       "default": 0
+     },
+     "center":{
+       "type":"string",
+       "description":"center",
+       "default": "[28.716,41.2696]"
+     },
+     "zoom":{
+       "type":"integer",
+       "description":"zoom",
+       "default": 18
+     },
+     "BColor":{
+       "type":"string",
+       "description":"Beacon Color",
+       "default":""
+    },
+    "BOColor":{
+       "type":"string",
+       "description":"Beacon outline color",
+       "default":""
+    },
+    "StartSize":{
+       "type":"string",
+       "description":"Beacon Start Size",
+       "default":""
+    },
+    "legendOption":{
+       "type":"string",
+       "description":"show legend or not",
+       "default":""
+    },
+    "chartMeasure":{
+       "type":"string",
+       "description":"get Measure",
+       "default":""
+    },
+    "StopSize":{
+       "type":"string",
+       "description":"Beacon Stop Size",
+       "default":""
+    },
+    "chartData":{
+       "type":"Selection[]",
+       "description":""
+    }
+   },
+   "methods": {
+     "setServiceLevel": {
+       "description": "Set the customer Service Level",
+       "parameters": [
+         {
+           "name": "service",
+           "type": "integer",
+           "description": "ServiceLevel"
+         }
+       ],
+       "body": "this.servicelevel = service;"
+     },
+     "getlayerURL":{
+        "returnType":"string",
+        "description":"Layer URL",
+        "parameters":[
+           
+        ],
+        "body":"return this.layerURL;"
+     },
+     "setlayerURL":{
+        "description":"Layer URL",
+        "parameters":[
+           {
+              "name":"layerURL",
+              "type":"string",
+              "description":"Set New Layer URL"
+           }
+        ],
+        "body":"this.layerURL = layerURL;"
+     },
+     "getdegrees":{
+        "returnType":"integer",
+        "description":"degrees",
+        "parameters":[
+           
+        ],
+        "body":"return this.degrees;"
+     },
+     "setdegrees":{
+        "description":"degrees",
+        "parameters":[
+           {
+              "name":"degrees",
+              "type":"integer",
+              "description":"degrees"
+           }
+        ],
+        "body":"this.degrees = degrees;"
+     },
+     "getcenter":{
+        "returnType":"string",
+        "description":"center",
+        "parameters":[
+           
+        ],
+        "body":"return this.center;"
+     },
+     "setcenter":{
+        "description":"center",
+        "parameters":[
+           {
+              "name":"center",
+              "type":"string",
+              "description":"Set Center"
+           }
+        ],
+        "body":"this.center = center;"
+     },
+     "getzoom":{
+        "returnType":"integer",
+        "description":"zoom",
+        "parameters":[
+           
+        ],
+        "body":"return this.zoom;"
+     },
+     "setzoom":{
+        "description":"zoom",
+        "parameters":[
+           {
+              "name":"zoom",
+              "type":"integer",
+              "description":"Set Zoom"
+           }
+        ],
+        "body":"this.zoom = zoom;"
+     },
+     "setchartData":{
+       "description":"get beacon data from chart to script",
+       "parameters":[
+          {
+             "name":"Data",
+             "type":"Selection[]",
+             "description":"chartData"
+          }
+       ],
+       "body":"this.chartData = Data;"
+     },
+     "getBeaconColor":{
+       "returnType":"string",
+       "description":"BeaconColor",
+       "parameters":[
+         
+       ],
+       "body":"return this.BColor;"
+     },
+     "setBeaconColor":{
+         "description":"BeaconColor",
+         "parameters":[
+           {
+               "name":"pid",
+               "type":"string",
+               "description":"BeaconColor"
+           }
+         ],
+         "body":"this.BColor = pid;"
+     },
+     "getBOColor":{
+         "returnType":"string",
+         "description":"BOColor",
+         "parameters":[
+           
+         ],
+         "body":"return this.BOColor;"
+     },
+     "setBOColor":{
+         "description":"BOColor",
+         "parameters":[
+           {
+               "name":"pcolor",
+               "type":"string",
+               "description":"BOColor"
+           }
+         ],
+         "body":"this.BOColor = pcolor;"
+     },
+     "getStartSize":{
+         "returnType":"string",
+         "description":"StartSize",
+         "parameters":[
+           
+         ],
+         "body":"return this.StartSize;"
+     },
+     "setStartSize":{
+         "description":"StartSize",
+         "parameters":[
+           {
+               "name":"pStartSize",
+               "type":"string",
+               "description":"StartSize"
+           }
+         ],
+         "body":"this.StartSize = pStartSize;"
+     },
+     "getStopSize":{
+         "returnType":"string",
+         "description":"StopSize",
+         "parameters":[
+           
+         ],
+         "body":"return this.StopSize;"
+     },
+     "setStopSize":{
+         "description":"StopSize",
+         "parameters":[
+           {
+               "name":"pStopSize",
+               "type":"string",
+               "description":"StopSize"
+           }
+         ],
+         "body":"this.StopSize = pStopSize;"
+     },
+     "getchartMeasure":{
+         "returnType":"string",
+         "description":"get measure",
+         "parameters":[
+           
+         ],
+         "body":"return this.chartMeasure;"
+     },
+     "setchartMeasure":{
+         "description":"chartMeasure",
+         "parameters":[
+           {
+               "name":"player",
+               "type":"string",
+               "description":"set measure"
+           }
+         ],
+         "body":"this.chartMeasure = player;"
+     }
+
+
+   },
+   "events": {
+     "onStart": {
+       "description": "onStart events trigger"
+     }
+   }
+ }
