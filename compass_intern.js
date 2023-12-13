@@ -21,6 +21,7 @@
   var mapValue = 0;
   var sum = 0;
   var gchartMeasure;
+  var total = 0;
 
   template.innerHTML = `
     <head>
