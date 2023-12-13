@@ -1,6 +1,6 @@
 {
    "id": "com.sap.custom.compass_widget_intern",
-   "version": "1.3.5",
+   "version": "1.3.6",
    "name": "Compass_intern_1",
    "description": "Compass_Widget_Test",
    "newInstancePrefix": "Compass_widget",
