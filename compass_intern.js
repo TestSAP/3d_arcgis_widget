@@ -76,7 +76,9 @@
         properties: {
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
-          measure: std(row[gchartMeasure]),
+          total: row.length,
+          measure: std(row[gchartMeasure], total),
+         
         },
         id: parseFloat(row.beaconID),
       };
@@ -84,9 +86,9 @@
 
     return geoJSONPointArr;
   }
-  function std(x) {
-
-    var y = parseFloat(x) / sum * 10;
+  function std(x,z) {
+    console.log(total);
+    var y = parseFloat(x) / sum * z;
     console.log(parseFloat(y));
     return parseFloat(y);
 
