@@ -41,7 +41,7 @@
     </style>
 
     <link rel="stylesheet" href="https://js.arcgis.com/4.27/esri/themes/light/main.css" />
-    <script src="https://js.arcgis.com/4.18/"></script>
+    <script src="https://js.arcgis.com/4.27/"></script>
 
 
   </head>
@@ -134,10 +134,10 @@
         view.rotation = gdegrees;
 
         // template to display additional details for the beacon when selected
-        // templates = {
-        //   title: 'Beacon Detail',
-        //   content: 'Beacon Name \n Aisle assigned to:{aisle_name}',
-        // };
+        templates = {
+          title: 'Beacon Detail',
+          content: 'Beacon Name \n Aisle assigned to:{aisle_name}',
+        };
 
         // information on how to display the beacons(point format)
         renderer = {
@@ -219,7 +219,7 @@
         // create a layer to hold the beacon coordinates
         geojsonlayer = new GeoJSONLayer({
           url,
-        //  popupTemplate: templates,
+          popupTemplate: templates,
           renderer: renderer
         });
         map.add(geojsonlayer);
