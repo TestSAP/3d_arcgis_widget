@@ -27,7 +27,7 @@
     <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>Compass widget | Sample | ArcGIS Maps SDK for JavaScript 4.27</title>
+    <title>Compass widget | Sample | ArcGIS Maps SDK for JavaScript 4.28</title>
 
     <style>
       html,
@@ -40,8 +40,8 @@
       }
     </style>
 
-    <link rel="stylesheet" href="https://js.arcgis.com/4.27/esri/themes/light/main.css" />
-    <script src="https://js.arcgis.com/4.27/"></script>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.28/"></script>
 
 
   </head>
