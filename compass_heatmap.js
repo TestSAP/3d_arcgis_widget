@@ -219,7 +219,7 @@
         // create a layer to hold the beacon coordinates
         geojsonlayer = new GeoJSONLayer({
           url,
-          popupTemplate: templates,
+        //  popupTemplate: templates,
           renderer: renderer
         });
         map.add(geojsonlayer);
