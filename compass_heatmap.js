@@ -21,7 +21,7 @@
   var mapValue = 0;
   var sum = 0;
   var gchartMeasure;
-  var total;
+  var total = 0;
 
   template.innerHTML = `
     <head>
@@ -134,10 +134,10 @@
         view.rotation = gdegrees;
 
         // template to display additional details for the beacon when selected
-        templates = {
-          title: 'Beacon Detail',
-          content: 'Beacon Name \n Aisle assigned to:{aisle_name}',
-        };
+        // templates = {
+        //   title: 'Beacon Detail',
+        //   content: 'Beacon Name \n Aisle assigned to:{aisle_name}',
+        // };
 
         // information on how to display the beacons(point format)
         renderer = {
