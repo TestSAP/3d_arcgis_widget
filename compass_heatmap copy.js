@@ -180,7 +180,7 @@
           return colorMap[gBeaconColor] || [0, 0, 0]; // default to black if colorName not found
         }
       
-        function generateColorBasedOnRatio(ratio, colorName) {
+        function generateColorBasedOnRatio(ratio, gBeaconColor) {
           // Ensure ratio is within valid range (0 to 1)
           ratio = Math.min(1, Math.max(0, ratio));
       
