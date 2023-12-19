@@ -186,6 +186,9 @@
       
           // // Base color: gcolor
           const baseColor = nameToRGB(gBeaconColor);
+           console.log(basecolor);
+           console.log(gBeaconColor);
+
           //const baseColor = JSON.parse(gBeaconColor);
 
 
