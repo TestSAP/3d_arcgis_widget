@@ -166,27 +166,27 @@
           // radius: 10;
         };
 
-        // function nameToRGB(name) {
-        //   // Define color name to RGB mapping
-        //   const colorMap = {
-        //     'red': [255, 0, 0],
-        //     'green': [0, 255, 0],
-        //     'blue': [0, 0, 255],
-        //     'purple':[128,0,128],
-        //     'orange' :[255,127,0],
-        //     'yellow' :[255,255,0],
-        //   };
+        function nameToRGB(name) {
+          // Define color name to RGB mapping
+          const colorMap = {
+            'red': [255, 0, 0],
+            'green': [0, 255, 0],
+            'blue': [0, 0, 255],
+            'purple':[128,0,128],
+            'orange' :[255,127,0],
+            'yellow' :[255,255,0],
+          };
       
-        //   return colorMap[name] || [0, 0, 0]; // default to black if colorName not found
-        // }
+          return colorMap[name] || [0, 0, 0]; // default to black if colorName not found
+        }
       
         function generateColorBasedOnRatio(ratio) {
           // Ensure ratio is within valid range (0 to 1)
           ratio = Math.min(1, Math.max(0, ratio));
       
           // // Base color: gcolor
-          // const baseColor = nameToRGB(gBeaconColor);
-          const baseColor = JSON.parse(gBeaconColor);
+          const baseColor = nameToRGB(gBeaconColor);
+          //const baseColor = JSON.parse(gBeaconColor);
 
 
           // Calculate variations
