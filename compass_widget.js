@@ -77,7 +77,7 @@
         properties: {
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
-          total: row.length,
+          total: row.length - 1,
           measure: std(row[gchartMeasure], total),  
         },
         id: parseFloat(row.beaconID),
@@ -140,7 +140,7 @@
         // information on how to display the beacons(point format)
         renderer = {
           type: "heatmap",
-          // field: "measure",
+           field: "measure",
           colorStops: [
             { color: "rgba(63, 40, 102, 0)", ratio: 0 },
               { color: "#472b77", ratio: 0.083 },
