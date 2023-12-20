@@ -20,7 +20,7 @@
       {
         "kind": "builder",
         "tag": "com-sap-custom-geomap-builder",
-        "url": "https://testsap.github.io/compass_widget_builder.js",
+        "url": "https://testsap.github.io/compass_widget_builde1r.js",
         "integrity": "",
         "ignoreIntegrity": true
       }
@@ -56,34 +56,9 @@
         "description":"zoom",
         "default": 18
       },
-      "BColor":{
-        "type":"string",
-        "description":"Beacon Color",
-        "default":""
-     },
-     "BOColor":{
-        "type":"string",
-        "description":"Beacon outline color",
-        "default":""
-     },
-     "StartSize":{
-        "type":"string",
-        "description":"Beacon Start Size",
-        "default":""
-     },
-     "legendOption":{
-        "type":"string",
-        "description":"show legend or not",
-        "default":""
-     },
      "chartMeasure":{
         "type":"string",
         "description":"get Measure",
-        "default":""
-     },
-     "StopSize":{
-        "type":"string",
-        "description":"Beacon Stop Size",
         "default":""
      },
      "chartData":{
@@ -189,82 +164,6 @@
            }
         ],
         "body":"this.chartData = Data;"
-      },
-      "getBeaconColor":{
-        "returnType":"string",
-        "description":"BeaconColor",
-        "parameters":[
-          
-        ],
-        "body":"return this.BColor;"
-      },
-      "setBeaconColor":{
-          "description":"BeaconColor",
-          "parameters":[
-            {
-                "name":"pid",
-                "type":"string",
-                "description":"BeaconColor"
-            }
-          ],
-          "body":"this.BColor = pid;"
-      },
-      "getBOColor":{
-          "returnType":"string",
-          "description":"BOColor",
-          "parameters":[
-            
-          ],
-          "body":"return this.BOColor;"
-      },
-      "setBOColor":{
-          "description":"BOColor",
-          "parameters":[
-            {
-                "name":"pcolor",
-                "type":"string",
-                "description":"BOColor"
-            }
-          ],
-          "body":"this.BOColor = pcolor;"
-      },
-      "getStartSize":{
-          "returnType":"string",
-          "description":"StartSize",
-          "parameters":[
-            
-          ],
-          "body":"return this.StartSize;"
-      },
-      "setStartSize":{
-          "description":"StartSize",
-          "parameters":[
-            {
-                "name":"pStartSize",
-                "type":"string",
-                "description":"StartSize"
-            }
-          ],
-          "body":"this.StartSize = pStartSize;"
-      },
-      "getStopSize":{
-          "returnType":"string",
-          "description":"StopSize",
-          "parameters":[
-            
-          ],
-          "body":"return this.StopSize;"
-      },
-      "setStopSize":{
-          "description":"StopSize",
-          "parameters":[
-            {
-                "name":"pStopSize",
-                "type":"string",
-                "description":"StopSize"
-            }
-          ],
-          "body":"this.StopSize = pStopSize;"
       },
       "getchartMeasure":{
           "returnType":"string",
