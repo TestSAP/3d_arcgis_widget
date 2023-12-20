@@ -139,7 +139,7 @@
           type: "heatmap",
            field: "measure",
           colorStops: [
-            { color: "rgba(255, 0, 0, 0)", ratio: 0 },
+            { color: "rgba(255, 0, 0, 0.8)", ratio: 0 },
               { color: "#472b77", ratio: 0 },
               { color: "#4e2d87", ratio: 0.166 },
               { color: "#563098", ratio: 0.249 },
@@ -159,9 +159,9 @@
         };
       });
   }
-  // function generateColorBasedOnRatio(ratio) {
-  //   // Ensure ratio is within valid range (0 to 1)
-  //   ratio = Math.min(1, Math.max(0, ratio));
+  function generateColorBasedOnRatio(ratio) {
+    // Ensure ratio is within valid range (0 to 1)
+    ratio = Math.min(1, Math.max(0, ratio));
 
   //   // Base color: gcolor
   //   const baseColor = JSON.parse(gBeaconColor);
@@ -183,7 +183,7 @@
   //   };
 
   //   return '#' + toHex(r) + toHex(g) + toHex(b);
-  // }
+  }
 
 
   // function inside class to create geojson beacons
