@@ -14,10 +14,6 @@
   var iniValue = 0;
   var pointArrFeatureCollection;
   var gPortalID;
-  var gBeaconColor;
-  var gBOColor;
-  var gBstartSize;
-  var gBStopSize;
   var mapValue = 0;
   var sum = 0;
   var gchartMeasure;
@@ -157,7 +153,7 @@
               { color: "#e0cf40", ratio: 0.913 },
               { color: "#ffff00", ratio: 1 }
           ],
-          maxDensity: 0.1,
+          maxDensity: 1,
           minDensity: 0,
           radius: 10
         };
@@ -261,21 +257,7 @@
       if ('zoom' in oChangedProperties) {
         gzoom = oChangedProperties['zoom'];
       }
-      if ('BColor' in oChangedProperties) {
-        gBeaconColor = oChangedProperties['BColor'];
-      }
-
-      if ('BOColor' in oChangedProperties) {
-        gBOColor = oChangedProperties['BOColor'];
-      }
-
-      if ('StartSize' in oChangedProperties) {
-        gBstartSize = oChangedProperties['StartSize'];
-      }
-      if ('StopSize' in oChangedProperties) {
-        gBStopSize = oChangedProperties['StopSize'];
-      }
-      if (!(gLayerURL == null || gBeaconColor == null || gBOColor == null || gBstartSize == null || gBStopSize == null)) {
+      if (!(gLayerURL == null )) {
         if ('chartData' in oChangedProperties) {
           locationData = oChangedProperties['chartData'];
         }
