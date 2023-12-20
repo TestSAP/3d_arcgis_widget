@@ -61,6 +61,17 @@
         "description":"get Measure",
         "default":""
      },
+           "StartSize":{
+        "type":"string",
+        "description":"Beacon Start Size",
+        "default":""
+     },
+   
+     "StopSize":{
+        "type":"string",
+        "description":"Beacon Stop Size",
+        "default":""
+     },
      "chartData":{
         "type":"Selection[]",
         "description":""
@@ -183,6 +194,36 @@
             }
           ],
           "body":"this.chartMeasure = player;"
+      }
+        "setStartSize":{
+          "description":"StartSize",
+          "parameters":[
+            {
+                "name":"pStartSize",
+                "type":"string",
+                "description":"StartSize"
+            }
+          ],
+          "body":"this.StartSize = pStartSize;"
+      },
+      "getStopSize":{
+          "returnType":"string",
+          "description":"StopSize",
+          "parameters":[
+            
+          ],
+          "body":"return this.StopSize;"
+      },
+      "setStopSize":{
+          "description":"StopSize",
+          "parameters":[
+            {
+                "name":"pStopSize",
+                "type":"string",
+                "description":"StopSize"
+            }
+          ],
+          "body":"this.StopSize = pStopSize;"
       }
  
  
