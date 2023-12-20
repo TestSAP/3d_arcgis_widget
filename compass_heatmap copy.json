@@ -1,8 +1,8 @@
 {
-   "id": "com.sap.custom.compass_heatmap_copy",
-   "version": "1.2.5",
-   "name": "Compass_heatmap_copy",
-   "description": "Compass_Widget_Test",
+   "id": "com.sap.custom.compass_heatmap1",
+   "version": "1.2.8",
+   "name": "Compass_heatmap1",
+   "description": "Compass_Widget_T",
    "newInstancePrefix": "Compass_widget",
    "icon": "",
    "vendor": "sap",
