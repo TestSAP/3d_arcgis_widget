@@ -140,7 +140,7 @@
         // information on how to display the beacons(point format)
         renderer = {
           type: "heatmap",
-          // field: "measure",
+          field: "measure",
           colorStops: [
             { color: "rgba(255, 0, 0, 0)", ratio: 0 },
               { color: "#472b77", ratio: 0.083 },
