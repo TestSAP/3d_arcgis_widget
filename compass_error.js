@@ -14,6 +14,10 @@
   var iniValue = 0;
   var pointArrFeatureCollection;
   var gPortalID;
+  var gBeaconColor;
+  var gBOColor;
+  var gBstartSize;
+  var gBStopSize;
   var mapValue = 0;
   var sum = 0;
   var gchartMeasure;
@@ -74,7 +78,6 @@
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
           total: row.length - 1,
-          //fieldValue: row.gchartMeasure,
           measure: std(row[gchartMeasure], total),  
         },
         id: parseFloat(row.beaconID),
@@ -137,10 +140,10 @@
         // information on how to display the beacons(point format)
         renderer = {
           type: "heatmap",
-          field: "measure",
+          // field: "measure",
           colorStops: [
-            { color: "rgba(255, 0, 0, 0.8)", ratio: 0 },
-              { color: "#472b77", ratio: 0 },
+            { color: "rgba(255, 0, 0, 0)", ratio: 0 },
+              { color: "#472b77", ratio: 0.083 },
               { color: "#4e2d87", ratio: 0.166 },
               { color: "#563098", ratio: 0.249 },
               { color: "#5d32a8", ratio: 0.332 },
@@ -257,7 +260,21 @@
       if ('zoom' in oChangedProperties) {
         gzoom = oChangedProperties['zoom'];
       }
-      if (!(gLayerURL == null )) {
+      if ('BColor' in oChangedProperties) {
+        gBeaconColor = oChangedProperties['BColor'];
+      }
+
+      if ('BOColor' in oChangedProperties) {
+        gBOColor = oChangedProperties['BOColor'];
+      }
+
+      if ('StartSize' in oChangedProperties) {
+        gBstartSize = oChangedProperties['StartSize'];
+      }
+      if ('StopSize' in oChangedProperties) {
+        gBStopSize = oChangedProperties['StopSize'];
+      }
+      if (!(gLayerURL == null || gBeaconColor == null || gBOColor == null || gBstartSize == null || gBStopSize == null)) {
         if ('chartData' in oChangedProperties) {
           locationData = oChangedProperties['chartData'];
         }
