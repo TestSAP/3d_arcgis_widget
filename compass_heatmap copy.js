@@ -21,7 +21,7 @@
   var mapValue = 0;
   var sum = 0;
   var gchartMeasure;
-  var total;
+  var total = 0;
 
   template.innerHTML = `
     <head>
@@ -80,7 +80,7 @@
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
           total: row.length,
-          measure: std(row[gchartMeasure]),
+          measure: std(row[gchartMeasure], total),
         },
         id: parseFloat(row.beaconID),
       };
@@ -88,9 +88,9 @@
 
     return geoJSONPointArr;
   }
-  function std(x){
+  function std(x, z){
 
-    var y = parseFloat(x)/sum*10;
+    var y = parseFloat(x)/sum * z;
     console.log(sum);
     console.log(parseFloat(y));
     return parseFloat(y);
