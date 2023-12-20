@@ -1,10 +1,10 @@
 {
     "id": "com.sap.custom.compass_error",
-    "version": "1.5.5",
+    "version": "1.3.5",
     "name": "Compass_error",
     "description": "Compass_Widget_Testing",
     "newInstancePrefix": "Compass_widget",
-    "icon": "",
+    "icon":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAA3NCSVQICAjb4U/gAAAAb1BMVEX///+ZmZl4dXdBPj9hYGGOjpE6ODo8OjwvLC0lISIpJSaMiooyLzH/cjMxLi9GREb/ZSk2MzV9fX1MSks4NjcrJyn/WR9ycnJRT1AtKiv/TRVdXF1ra2v7VCfJyMk+PD6tra+rqqtUUlU0MTNqaGpjxDg2AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAKhJREFUGNM9z9EagiAMBeDpEGkWNAGhqFTq/Z8xwK/+q7PtZgeg6npEMcBPJ0d1Kmg6ZnFGRZcLESnR7tpoouuVSCPPZYHWee+XxTsrvQeYQrwV97tL5uZigMeoqucTUSnWEVBX4fWaW2BYz1W3bXsLDPldcD8MoYZ3glmMjNbGLJk5igDgnLTGHazdAPo1Gdms2bZXhRmbMuNR5rNWJuX075sMYg57jV94IQ2Xqt1atQAAAABJRU5ErkJggg==",
     "vendor": "sap",
     "eula": "",
     "license": "",
@@ -56,17 +56,16 @@
         "description":"zoom",
         "default": 18
       },
-     "chartMeasure":{
-        "type":"string",
-        "description":"get Measure",
-        "default":""
-     },
-           "StartSize":{
+     "StartSize":{
         "type":"string",
         "description":"Beacon Start Size",
         "default":""
      },
-   
+     "legendOption":{
+        "type":"string",
+        "description":"show legend or not",
+        "default":""
+     },
      "StopSize":{
         "type":"string",
         "description":"Beacon Stop Size",
@@ -176,26 +175,15 @@
         ],
         "body":"this.chartData = Data;"
       },
-      "getchartMeasure":{
+      "getStartSize":{
           "returnType":"string",
-          "description":"get measure",
+          "description":"StartSize",
           "parameters":[
             
           ],
-          "body":"return this.chartMeasure;"
+          "body":"return this.StartSize;"
       },
-      "setchartMeasure":{
-          "description":"chartMeasure",
-          "parameters":[
-            {
-                "name":"player",
-                "type":"string",
-                "description":"set measure"
-            }
-          ],
-          "body":"this.chartMeasure = player;"
-      }
-        "setStartSize":{
+      "setStartSize":{
           "description":"StartSize",
           "parameters":[
             {
@@ -224,8 +212,7 @@
             }
           ],
           "body":"this.StopSize = pStopSize;"
-      }
- 
+      },
  
     },
     "events": {
