@@ -79,7 +79,7 @@
         properties: {
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
-          total: row.beaconName,
+          total: row.length - 1,
           measure: std(row[gchartMeasure], total),
         },
         id: parseFloat(row.beaconID),
@@ -159,8 +159,8 @@
               { color: generateColorBasedOnRatio(1), ratio: 1 }
             ],
           maxDensity: 1,
-          minDensity: 0
-          // radius: 10;
+          minDensity: 0,
+          radius: 10;
         };
       });
   }
