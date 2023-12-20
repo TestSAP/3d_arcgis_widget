@@ -46,23 +46,6 @@
               <td><label for="zoom">Zoom:</label></td>
               <td><input id="zoom" name="zoom" type="number"></td>
             </tr>
-            <tr>
-              <td><label for="BColor">Beacon Color:</label></td>
-              <td><input id="BColor" name="BColor" type="text"></td>
-            </tr> 
-            <tr>
-              <td><label for="BOColor">Beacon Outline Color:</label></td>
-              <td><input id="BOColor" name="BOColor" type="text"></td>
-            </tr>
-            <tr>
-              <td><label for="StartSize">Beacon Start Size:</label></td>
-              <td><input id="StartSize" name="StartSize" type="text"></td>
-            </tr>
-            <tr>
-              <td><label for="StopSize">Beacon Stop Size:</label></td>
-              <td><input id="StopSize" name="StopSize" type="text"></td>
-            </tr>
-            <tr>
               <td><label for="chartMeasure">Measure:</label></td>
               <td><input id="chartMeasure" name="chartMeasure" type="text"></td>
             </tr>
@@ -139,34 +122,6 @@
         }
         set zoom(value) {
             this.setValue("zoom", value);    
-        }
-
-        get BColor() {
-            return this.getValue("BColor");
-        }
-        set BColor(value) {
-            this.setValue("BColor", value);    
-        }
-
-        get BOColor() {
-            return this.getValue("BOColor");
-        }
-        set BOColor(value) {
-            this.setValue("BOColor", value);    
-        }
-
-        get StartSize() {
-            return this.getValue("StartSize");
-        }
-        set StartSize(value) {
-            this.setValue("StartSize", value);    
-        }
-        
-        get StopSize() {
-            return this.getValue("StopSize");
-        }
-        set StopSize(value) {
-            this.setValue("StopSize", value);    
         }
         
         get chartMeasure() {
