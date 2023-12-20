@@ -143,8 +143,8 @@
           type: "heatmap",
            field: "measure",
           colorStops: [
-            { color: "rgba(63, 40, 102, 0)", ratio: 0 },
-              { color: "#472b77", ratio: 0.083 },
+          //  { color: "rgba(63, 40, 102, 0)", ratio: 0 },
+              { color: "#472b77", ratio: 0 },
               { color: "#4e2d87", ratio: 0.166 },
               { color: "#563098", ratio: 0.249 },
               { color: "#5d32a8", ratio: 0.332 },
@@ -163,31 +163,31 @@
         };
       });
   }
-  function generateColorBasedOnRatio(ratio) {
-    // Ensure ratio is within valid range (0 to 1)
-    ratio = Math.min(1, Math.max(0, ratio));
+  // function generateColorBasedOnRatio(ratio) {
+  //   // Ensure ratio is within valid range (0 to 1)
+  //   ratio = Math.min(1, Math.max(0, ratio));
 
-    // Base color: gcolor
-    const baseColor = JSON.parse(gBeaconColor);
+  //   // Base color: gcolor
+  //   const baseColor = JSON.parse(gBeaconColor);
 
-    // Calculate variations
-    const variations = baseColor.map(channel => Math.round(channel * (1 - ratio)));
+  //   // Calculate variations
+  //   const variations = baseColor.map(channel => Math.round(channel * (1 - ratio)));
 
-    // Convert RGB values to hex
-    const hexColor = rgbToHex(variations[0], variations[1], variations[2]);
-    console.log(hexColor);
-    return hexColor;
-  }
+  //   // Convert RGB values to hex
+  //   const hexColor = rgbToHex(variations[0], variations[1], variations[2]);
+  //   console.log(hexColor);
+  //   return hexColor;
+  // }
 
-  // Function to convert RGB to hex
-  function rgbToHex(r, g, b) {
-    const toHex = channel => {
-      const hex = channel.toString(16);
-      return hex.length === 1 ? '0' + hex : hex;
-    };
+  // // Function to convert RGB to hex
+  // function rgbToHex(r, g, b) {
+  //   const toHex = channel => {
+  //     const hex = channel.toString(16);
+  //     return hex.length === 1 ? '0' + hex : hex;
+  //   };
 
-    return '#' + toHex(r) + toHex(g) + toHex(b);
-  }
+  //   return '#' + toHex(r) + toHex(g) + toHex(b);
+  // }
 
 
   // function inside class to create geojson beacons
