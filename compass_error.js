@@ -77,7 +77,7 @@
         properties: {
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
-          total: row.length,
+          total: row.length - 1,
           measure: std(row[gchartMeasure], total),
          
         },
