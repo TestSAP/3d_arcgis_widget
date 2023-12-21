@@ -1,6 +1,6 @@
 {
     "id": "com.sap.custom.compass_error",
-    "version": "1.5.5",
+    "version": "2.5.5",
     "name": "Compass_error",
     "description": "Compass_Widget_Testing",
     "newInstancePrefix": "Compass_widget",
