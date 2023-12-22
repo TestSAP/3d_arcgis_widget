@@ -53,10 +53,6 @@
             <tr>
               <td><label for="StopSize">Beacon Stop Size:</label></td>
               <td><input id="StopSize" name="StopSize" type="text"></td>
-            </tr>
-              <td><label for="chartMeasure">Measure:</label></td>
-              <td><input id="chartMeasure" name="chartMeasure" type="text"></td>
-            </tr>
           </table>
         </fieldset>
         <button type="submit" hidden>Submit</button>
@@ -144,12 +140,6 @@
         }
         set StopSize(value) {
             this.setValue("StopSize", value);    
-        }
-        get chartMeasure() {
-            return this.getValue("chartMeasure");
-        }
-        set chartMeasure(value) {
-            this.setValue("chartMeasure", value);    
         }
         
         getValue(id) {
