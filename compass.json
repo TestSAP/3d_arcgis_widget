@@ -20,7 +20,7 @@
       {
         "kind": "builder",
         "tag": "com-sap-custom-geomap-builder",
-        "url": "https://testsap.github.io/compass_widget_builde1r.js",
+        "url": "https://testsap.github.io/compass_builder.js",
         "integrity": "",
         "ignoreIntegrity": true
       }
