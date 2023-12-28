@@ -1,6 +1,6 @@
 {
    "id": "com.sap.custom.compass_heatmap",
-   "version": "1.3.3",
+   "version": "1.5.3",
    "name": "Compass_heatmap",
    "description": "Compass_Widget_Test",
    "newInstancePrefix": "Compass_widget",
@@ -20,7 +20,7 @@
      {
        "kind": "builder",
        "tag": "com-sap-custom-geomap-builder",
-       "url": "https://testsap.github.io/compass_widget_builder.js",
+       "url": "https://testsap.github.io/compass_builder.js",
        "integrity": "",
        "ignoreIntegrity": true
      }
