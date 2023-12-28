@@ -56,16 +56,7 @@
        "description":"zoom",
        "default": 18
      },
-     "BColor":{
-       "type":"string",
-       "description":"Beacon Color",
-       "default":""
-    },
-    "BOColor":{
-       "type":"string",
-       "description":"Beacon outline color",
-       "default":""
-    },
+ 
     "StartSize":{
        "type":"string",
        "description":"Beacon Start Size",
@@ -189,44 +180,6 @@
           }
        ],
        "body":"this.chartData = Data;"
-     },
-     "getBeaconColor":{
-       "returnType":"string",
-       "description":"BeaconColor",
-       "parameters":[
-         
-       ],
-       "body":"return this.BColor;"
-     },
-     "setBeaconColor":{
-         "description":"BeaconColor",
-         "parameters":[
-           {
-               "name":"pid",
-               "type":"string",
-               "description":"BeaconColor"
-           }
-         ],
-         "body":"this.BColor = pid;"
-     },
-     "getBOColor":{
-         "returnType":"string",
-         "description":"BOColor",
-         "parameters":[
-           
-         ],
-         "body":"return this.BOColor;"
-     },
-     "setBOColor":{
-         "description":"BOColor",
-         "parameters":[
-           {
-               "name":"pcolor",
-               "type":"string",
-               "description":"BOColor"
-           }
-         ],
-         "body":"this.BOColor = pcolor;"
      },
      "getStartSize":{
          "returnType":"string",
