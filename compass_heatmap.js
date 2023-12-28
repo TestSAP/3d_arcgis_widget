@@ -27,7 +27,7 @@
     <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>Compass widget | Sample | ArcGIS Maps SDK for JavaScript 4.28</title>
+    <title>Compass widget | Sample | ArcGIS Maps SDK for JavaScript 4.27</title>
 
     <style>
       html,
@@ -40,8 +40,8 @@
       }
     </style>
 
-    <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css" />
-    <script src="https://js.arcgis.com/4.28/"></script>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.27/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.27/"></script>
 
 
   </head>
@@ -53,23 +53,21 @@
 
   // Convert string coordinate from geojson file to array of cooor
   function removeString(stringCoor) {
-    try
-    {
-     var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
-     var Lat = parseFloat(LatLng[0]);
-     var Lng = parseFloat(LatLng[1]);
-     return [Lng, Lat]
+    try {
+      var LatLng = stringCoor.replace('[', '').replace(']', '').split(',')
+      var Lat = parseFloat(LatLng[0]);
+      var Lng = parseFloat(LatLng[1]);
+      return [Lng, Lat]
     }
-    catch(e){
-     console.log("not a coordinate");
+    catch (e) {
+      console.log("not a coordinate");
     }
-   }
+  }
 
   // function to convert array to geojson format
   function j2gConvert(jsonObject) {
     const geoJSONPointArr = jsonObject.map((row) => {
       sum = jsonObject[jsonObject.length - 1].sum;
-      console.log(row[gchartMeasure]);
       return {
         type: 'Feature',
         geometry: {
@@ -80,7 +78,7 @@
           beaconId: row.beaconID,
           aisle_name: row.beaconName,
           total: row.length - 1,
-          measure: std(row[gchartMeasure], total),
+          measure: std(row[gchartMeasure], total),  
         },
         id: parseFloat(row.beaconID),
       };
@@ -88,14 +86,14 @@
 
     return geoJSONPointArr;
   }
-  function std(x, z){
 
-    var y = parseFloat(x)/sum*z;
-    console.log(sum);
+  function std(x,z) {
+    console.log(total);
+    var y = parseFloat(x) / sum * z;
     console.log(parseFloat(y));
     return parseFloat(y);
-
   }
+
   function mainMap() {
     require(["esri/Map", "esri/views/MapView", "esri/widgets/Compass", "esri/layers/FeatureLayer"],
       (Map, MapView, Compass, FeatureLayer) => {
@@ -136,60 +134,60 @@
         // template to display additional details for the beacon when selected
         templates = {
           title: 'Beacon Detail',
-          content: 'Beacon Name \n Aisle assigned to:{aisle_name}',
+          content: 'Aisle assigned to:{aisle_name}',
         };
 
         // information on how to display the beacons(point format)
         renderer = {
           type: "heatmap",
-            field: "measure",
-            colorStops: [
-              { color: "rgba(63, 40, 102, 0)", ratio: 0 },
-              { color: generateColorBasedOnRatio(0.083), ratio: 0.083 },
-              { color: generateColorBasedOnRatio(0.166 ), ratio: 0.166 },
-              { color: generateColorBasedOnRatio(0.249), ratio: 0.249 },
-              { color: generateColorBasedOnRatio(0.332), ratio: 0.332 },
-              { color: generateColorBasedOnRatio(0.415), ratio: 0.415 },
-              { color: generateColorBasedOnRatio(0.498), ratio: 0.498 },
-              { color: generateColorBasedOnRatio(0.581), ratio: 0.581 },
-              { color: generateColorBasedOnRatio(0.664), ratio: 0.664 },
-              { color: generateColorBasedOnRatio(0.747), ratio: 0.747 },
-              { color: generateColorBasedOnRatio(0.83), ratio: 0.83 },
-              { color: generateColorBasedOnRatio(0.913), ratio: 0.913 },
-              { color: generateColorBasedOnRatio(1), ratio: 1 }
-            ],
-          maxDensity: 1,
+          // field: "measure",
+          colorStops: [
+            { color: "rgba(63, 40, 102, 0)", ratio: 0 },
+              { color: "#472b77", ratio: 0.083 },
+              { color: "#4e2d87", ratio: 0.166 },
+              { color: "#563098", ratio: 0.249 },
+              { color: "#5d32a8", ratio: 0.332 },
+              { color: "#6735be", ratio: 0.415 },
+              { color: "#7139d4", ratio: 0.498 },
+              { color: "#7b3ce9", ratio: 0.581 },
+              { color: "#853fff", ratio: 0.664 },
+              { color: "#a46fbf", ratio: 0.747 },
+              { color: "#c29f80", ratio: 0.83 },
+              { color: "#e0cf40", ratio: 0.913 },
+              { color: "#ffff00", ratio: 1 }
+          ],
+          maxDensity: 0.1,
           minDensity: 0,
-          radius: 10;
+          radius: 10
         };
       });
   }
+  // function generateColorBasedOnRatio(ratio) {
+  //   // Ensure ratio is within valid range (0 to 1)
+  //   ratio = Math.min(1, Math.max(0, ratio));
 
-  function generateColorBasedOnRatio(ratio) {
-    // Ensure ratio is within valid range (0 to 1)
-    ratio = Math.min(1, Math.max(0, ratio));
+  //   // Base color: gcolor
+  //   const baseColor = JSON.parse(gBeaconColor);
 
-    // Base color: gcolor
-    const baseColor = JSON.parse(gBeaconColor);
+  //   // Calculate variations
+  //   const variations = baseColor.map(channel => Math.round(channel * (1 - ratio)));
 
-    // Calculate variations
-    const variations = baseColor.map(channel => Math.round(channel * (1 - ratio)));
+  //   // Convert RGB values to hex
+  //   const hexColor = rgbToHex(variations[0], variations[1], variations[2]);
+  //   console.log(hexColor);
+  //   return hexColor;
+  // }
 
-    // Convert RGB values to hex
-    const hexColor = rgbToHex(variations[0], variations[1], variations[2]);
-    console.log(hexColor);
-    return hexColor;
-  }
+  // // Function to convert RGB to hex
+  // function rgbToHex(r, g, b) {
+  //   const toHex = channel => {
+  //     const hex = channel.toString(16);
+  //     return hex.length === 1 ? '0' + hex : hex;
+  //   };
 
-  // Function to convert RGB to hex
-  function rgbToHex(r, g, b) {
-    const toHex = channel => {
-      const hex = channel.toString(16);
-      return hex.length === 1 ? '0' + hex : hex;
-    };
+  //   return '#' + toHex(r) + toHex(g) + toHex(b);
+  // }
 
-    return '#' + toHex(r) + toHex(g) + toHex(b);
-  }
 
   // function inside class to create geojson beacons
   function processbeacons() {
@@ -224,9 +222,6 @@
         });
         map.add(geojsonlayer);
         iniValue = 1;
-        console.log("layer loaded");
-        console.log(gchartMeasure);
-        console.log(pointArrFeatureCollection);
       });
   } // end of function bracket
 
@@ -250,8 +245,8 @@
     }
 
     onCustomWidgetAfterUpdate(oChangedProperties) {
-      if('chartMeasure' in oChangedProperties){
-        gchartMeasure= oChangedProperties['chartMeasure'];
+      if ('chartMeasure' in oChangedProperties) {
+        gchartMeasure = oChangedProperties['chartMeasure'];
       }
       if ('layerURL' in oChangedProperties) {
         gLayerURL = oChangedProperties['layerURL'].split(',').map(item => item.trim());
@@ -264,13 +259,6 @@
       }
       if ('zoom' in oChangedProperties) {
         gzoom = oChangedProperties['zoom'];
-      }
-      if ('BColor' in oChangedProperties) {
-        gBeaconColor = oChangedProperties['BColor'];
-      }
-
-      if ('BOColor' in oChangedProperties) {
-        gBOColor = oChangedProperties['BOColor'];
       }
 
       if ('StartSize' in oChangedProperties) {
