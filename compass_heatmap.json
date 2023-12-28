@@ -67,11 +67,7 @@
        "description":"show legend or not",
        "default":""
     },
-    "chartMeasure":{
-       "type":"string",
-       "description":"get Measure",
-       "default":""
-    },
+
     "StopSize":{
        "type":"string",
        "description":"Beacon Stop Size",
@@ -219,25 +215,7 @@
          ],
          "body":"this.StopSize = pStopSize;"
      },
-     "getchartMeasure":{
-         "returnType":"string",
-         "description":"get measure",
-         "parameters":[
-           
-         ],
-         "body":"return this.chartMeasure;"
-     },
-     "setchartMeasure":{
-         "description":"chartMeasure",
-         "parameters":[
-           {
-               "name":"player",
-               "type":"string",
-               "description":"set measure"
-           }
-         ],
-         "body":"this.chartMeasure = player;"
-     }
+    
 
 
    },
