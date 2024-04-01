@@ -24,7 +24,7 @@
 
   template.innerHTML = `
         <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css" />
-    <script src="https://js.arcgis.com/4.23/"></script>
+    <script src="https://js.arcgis.com/4.29/"></script>
     <style>
     html,
     body,
@@ -93,7 +93,7 @@
         'esri/tasks/support/RouteParameters',
         'esri/tasks/support/FeatureSet',
       ],
-      (esriConfig, Map, SceneView, WebScene, Basemap, TileLayer, FeatureLayer,
+      (esriConfig, Map, SceneView, WebScene, Basemap, ElevationLayer, TileLayer, FeatureLayer,
         LayerList, request, GraphicsLayer, Graphic, Legend, GeoJSONLayer,
         RouteTask, RouteParameters, FeatureSet) => {
 
@@ -103,6 +103,8 @@
         webscene = new WebScene({
           portalItem: {
             id: gPortalID,
+            basemap: "topo-vector",
+            ground: "world-elevation",
           },
         });
 
@@ -112,7 +114,17 @@
           container: 'viewDiv',
           map: webscene,
         });
-          
+           // Create elevation layer and add to the map
+        const elevationLayer = new ElevationLayer({
+          url:
+            "https://sampleserver6.arcgisonline.com/arcgis/rest/services/OsoLandslide/OsoLandslide_After_3DTerrain/ImageServer",
+          visible: false
+        });
+
+        // add the elevationlayer after the ground instance got created
+        map.ground.when(() => {
+          map.ground.layers.add(elevationLayer);
+        });
 
         if (glegendOption == "on") {
           // display a key on the screen containing all shapes in map
@@ -314,7 +326,7 @@
 
 
   } // end of class
-  let scriptSrc = 'https://js.arcgis.com/4.18/'
+  let scriptSrc = 'https://js.arcgis.com/4.29/'
   let onScriptLoaded =
     function() {
       customElements.define('com-sap-custom-jumbo-beacon-interface', Map);
