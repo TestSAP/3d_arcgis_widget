@@ -102,10 +102,10 @@
         // create the main map of type webscene
         webscene = new WebScene({
           portalItem: {
-            id: gPortalID,
-            basemap: "topo-vector",
-            ground: "world-elevation",
+            id: gPortalID,            
           },
+          basemap: "topo-vector",
+          ground: "world-elevation",
         });
 
 
