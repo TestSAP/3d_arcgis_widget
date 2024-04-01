@@ -81,6 +81,7 @@
         'esri/views/SceneView',
         'esri/WebScene',
         'esri/Basemap',
+        'esri/layers/ElevationLayer',
         'esri/layers/FeatureLayer',
         'esri/widgets/LayerList',
         'esri/request',
@@ -104,8 +105,8 @@
           portalItem: {
             id: gPortalID,            
           },
-          basemap: "topo-vector",
-          ground: "world-elevation",
+          basemap: 'topo-vector',
+          ground: 'world-elevation'
         });
 
 
